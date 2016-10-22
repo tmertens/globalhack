@@ -18,5 +18,6 @@ end
 ClientProfile.create!(username: 'PowerMan',
                       client: luke,
                       bio: "Luke Cage is an ex-convict, who was imprisoned for a crime he did not commit and gained the powers of superhuman strength and unbreakable skin after he was subjected to an involuntary experiment. He's getting back on his feet after his building was blown up by Cottonmouth",
-                      require_secret: true
+                      require_secret: true,
+                      avatar_file_name: '/public/missing.png'
 )
