@@ -1,1 +1,0 @@
-json.partial! "clients_organizations/clients_organization", clients_organization: @clients_organization
