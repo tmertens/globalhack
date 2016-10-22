@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022020237) do
+ActiveRecord::Schema.define(version: 20161022020514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,20 @@ ActiveRecord::Schema.define(version: 20161022020237) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "housing_locations", force: :cascade do |t|
+    t.integer  "service_provider_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["service_provider_id"], name: "index_housing_locations_on_service_provider_id", using: :btree
+  end
+
+  create_table "housing_units", force: :cascade do |t|
+    t.integer  "housing_location_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["housing_location_id"], name: "index_housing_units_on_housing_location_id", using: :btree
+  end
+
   create_table "service_providers", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -69,4 +83,6 @@ ActiveRecord::Schema.define(version: 20161022020237) do
 
   add_foreign_key "client_service_providers", "clients"
   add_foreign_key "client_service_providers", "service_providers"
+  add_foreign_key "housing_locations", "service_providers"
+  add_foreign_key "housing_units", "housing_locations"
 end
