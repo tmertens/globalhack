@@ -6,7 +6,5 @@ class CreateClientsOrganizations < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :clients_organizations, :client_id
-    add_index :clients_organizations, :organization_id
   end
 end

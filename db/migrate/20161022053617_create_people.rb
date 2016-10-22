@@ -9,7 +9,6 @@ class CreatePeople < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :people, :client_id
     add_index :people, :gender
     add_index :people, :date_of_birth
   end
