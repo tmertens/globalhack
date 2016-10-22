@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022200336) do
+ActiveRecord::Schema.define(version: 20161022211512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,8 +135,13 @@ ActiveRecord::Schema.define(version: 20161022200336) do
     t.string   "last_name"
     t.date     "date_of_birth"
     t.integer  "gender"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "ssn"
+    t.boolean  "substance_abuser"
+    t.boolean  "domestic_abuse_victim"
+    t.boolean  "prior_violence"
+    t.integer  "vispdat_score"
     t.index ["client_id"], name: "index_people_on_client_id", using: :btree
     t.index ["date_of_birth"], name: "index_people_on_date_of_birth", using: :btree
     t.index ["gender"], name: "index_people_on_gender", using: :btree
