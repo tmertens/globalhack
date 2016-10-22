@@ -7,4 +7,13 @@ class Client < ApplicationRecord
   has_many :clients_organizations
   has_many :organizations, through: :clients_organizations
   has_many :contacts, as: :contactable
+
+
+
+  # Pull out to module
+  before_save :set_uuid
+  def set_uuid
+    self.uuid ||= SecureRandom.uuid
+  end
+
 end

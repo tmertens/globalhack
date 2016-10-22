@@ -9,7 +9,7 @@ class ClientProfile < ApplicationRecord
 
   class << self
     def digest(value)
-      Digest::SHA256.digest value
+      Digest::SHA256.hexdigest value
     end
   end
 

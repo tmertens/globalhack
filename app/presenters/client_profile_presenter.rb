@@ -3,25 +3,31 @@ require 'digest'
 class ClientProfilePresenter
 
   def initialize(profile, provided_text_secret)
-    @profile
+    @profile = profile
+    @provided_text_secret = provided_text_secret
+  end
+
+  def username
+    profile.username
   end
 
   # metaprogram this pattern?
   def bio
-    full_profile_viewable? ? profile.bio : ''
+    authorized? ? profile.bio : ''
+  end
+
+  def authorized?
+    profile.secret_not_required? || correct_secret_provided?
   end
 
   private
 
-  attr_reader :profile
-
-  def full_profile_viewable?
-    profile.secret_not_required? || correct_secret_provided?
-  end
+  attr_reader :profile, :provided_text_secret
 
   def correct_secret_provided?
     defined?(:@correct_secret_provided) or
       @correct_secret_provided = (hashed_provided_secret == profile.hashed_public_secret)
+    @correct_secret_provided
   end
 
   def hashed_provided_secret
