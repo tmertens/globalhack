@@ -33,16 +33,17 @@ simple_eligibility_criteria = [
   'Youth'
 ]
 simple_eligibility_criteria.each do |criteria|
-  EligibilityCriteria.first_or_create!(name: criteria)
+  EligibilityCriteria.find_or_create_by!(name: criteria)
 end
 
 categorized_eligibility_criteria = {
   'Gender' => ['Male', 'Female', 'Other'],
 }
 categorized_eligibility_criteria.each do |category, values|
-  category = EligibilityCriteria.first_or_create!(name: category)
+  category = EligibilityCriteria.find_or_create_by!(name: category)
   values.each do |value|
-    EligibilityCriteria.first_or_create!(name: value, category: category)
+    EligibilityCriteria.find_or_create_by!(name: value,
+                                           category: category)
   end
 end
 
