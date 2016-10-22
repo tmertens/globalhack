@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022164156) do
+ActiveRecord::Schema.define(version: 20161022170619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,16 @@ ActiveRecord::Schema.define(version: 20161022164156) do
     t.datetime "updated_at",          null: false
   end
 
+  create_table "eligibility_requirement_categories", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "eligibility_requirements", force: :cascade do |t|
+    t.string  "name"
+    t.integer "eligibility_requirement_category_id"
+    t.index ["eligibility_requirement_category_id"], name: "eligibility_reqs_to_categories_ref", using: :btree
+  end
+
   create_table "housing_units", force: :cascade do |t|
     t.integer  "location_id"
     t.string   "unit_name"
@@ -95,6 +105,13 @@ ActiveRecord::Schema.define(version: 20161022164156) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["client_uuid"], name: "index_magic_phrases_on_client_uuid", using: :btree
+  end
+
+  create_table "offering_eligibility_requirements", force: :cascade do |t|
+    t.integer "service_offering_id"
+    t.integer "eligibility_requirement_id"
+    t.index ["eligibility_requirement_id"], name: "offering_eligibility_eligibility_index", using: :btree
+    t.index ["service_offering_id"], name: "offering_eligibility_offering_index", using: :btree
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -169,6 +186,8 @@ ActiveRecord::Schema.define(version: 20161022164156) do
   add_foreign_key "clients_organizations", "organizations"
   add_foreign_key "housing_units", "locations"
   add_foreign_key "locations", "organizations"
+  add_foreign_key "offering_eligibility_requirements", "eligibility_requirements"
+  add_foreign_key "offering_eligibility_requirements", "service_offerings"
   add_foreign_key "organizations", "users", column: "owner_id"
   add_foreign_key "payments", "clients"
   add_foreign_key "payments", "organizations"
