@@ -1,5 +1,5 @@
 class HousingLocation < ApplicationRecord
-  belongs_to :service_provider
+  belongs_to :organization
   has_many :housing_units
   has_many :contacts, as: :contactable
 end

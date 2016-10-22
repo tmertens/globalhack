@@ -1,6 +1,8 @@
 require 'housing_first/api/base'
 
 Rails.application.routes.draw do
+  resources :clients_organizations
+  resources :organizations
   devise_for :users
   get 'pages/index'
   root 'pages#index'

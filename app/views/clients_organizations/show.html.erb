@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @clients_organization.client_id %>
+</p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @clients_organization.organization_id %>
+</p>
+
+<%= link_to 'Edit', edit_clients_organization_path(@clients_organization) %> |
+<%= link_to 'Back', clients_organizations_path %>
