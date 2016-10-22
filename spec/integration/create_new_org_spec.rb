@@ -8,8 +8,10 @@ describe 'Creating a new organization' do
   let(:service_e) { Service.create!(name: 'service_e') }
   let(:service_f) { Service.create!(name: 'service_f') }
 
+  let(:user)      { User.create!(email: 'dr_cat@cats.com', password: 'cats4lyfe') }
+
   specify 'as a new user, I can complete the organization creation process' do
-    organization = Organization::Create.call!(name: 'Chaps Chippers')
+    organization = Organization::Create.call!(name: 'Chaps Chippers', owner: user)
     location = Organization::CreateFirstLocation.call!(organization: organization,
                                                        street_1: '1 S Compton Ave',
                                                        city:     'St Louis',
