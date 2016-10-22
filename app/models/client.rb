@@ -7,4 +7,5 @@ class Client < ApplicationRecord
 
   has_many :client_service_providers
   has_many :service_providers, through: :client_service_providers
+  has_many :contacts, as: :contactable
 end
