@@ -56,29 +56,29 @@ ActiveRecord::Schema.define(version: 20161022101927) do
   end
 
   create_table "housing_attributes", force: :cascade do |t|
-    t.integer  "housing_location_id"
+    t.integer  "location_id"
     t.integer  "service_offering_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.index ["housing_location_id"], name: "index_housing_attributes_on_housing_location_id", using: :btree
+    t.index ["location_id"], name: "index_housing_attributes_on_location_id", using: :btree
     t.index ["service_offering_id"], name: "index_housing_attributes_on_service_offering_id", using: :btree
   end
 
-  create_table "housing_locations", force: :cascade do |t|
+  create_table "housing_units", force: :cascade do |t|
+    t.integer  "location_id"
+    t.string   "unit_name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["location_id"], name: "index_housing_units_on_location_id", using: :btree
+  end
+
+  create_table "locations", force: :cascade do |t|
     t.integer  "organization_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "address_id"
-    t.index ["address_id"], name: "index_housing_locations_on_address_id", using: :btree
-    t.index ["organization_id"], name: "index_housing_locations_on_organization_id", using: :btree
-  end
-
-  create_table "housing_units", force: :cascade do |t|
-    t.integer  "housing_location_id"
-    t.string   "unit_name"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.index ["housing_location_id"], name: "index_housing_units_on_housing_location_id", using: :btree
+    t.index ["address_id"], name: "index_locations_on_address_id", using: :btree
+    t.index ["organization_id"], name: "index_locations_on_organization_id", using: :btree
   end
 
   create_table "offering_categories", force: :cascade do |t|
@@ -134,10 +134,10 @@ ActiveRecord::Schema.define(version: 20161022101927) do
 
   add_foreign_key "clients_organizations", "clients"
   add_foreign_key "clients_organizations", "organizations"
-  add_foreign_key "housing_attributes", "housing_locations"
+  add_foreign_key "housing_attributes", "locations"
   add_foreign_key "housing_attributes", "service_offerings"
-  add_foreign_key "housing_locations", "organizations"
-  add_foreign_key "housing_units", "housing_locations"
+  add_foreign_key "housing_units", "locations"
+  add_foreign_key "locations", "organizations"
   add_foreign_key "people", "clients"
   add_foreign_key "service_offerings", "offering_categories"
 end

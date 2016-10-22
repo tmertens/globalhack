@@ -12,8 +12,8 @@ class Organization < ApplicationRecord
                                       city:     city,
                                       state:     state,
                                       zipcode:  zipcode)
-      location = HousingLocation::Create.call!(organization: organization,
-                                               address:      address)
+      location = Location::Create.call!(organization: organization,
+                                        address:      address)
       create_phone(location)
       create_email(location)
     end

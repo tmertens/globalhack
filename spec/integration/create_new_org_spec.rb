@@ -13,7 +13,7 @@ describe 'Creating a new organization' do
     expect(organization.name).to eq 'Chaps Chippers'
     expect(organization).not_to be_changed
 
-    location = organization.housing_locations.first
+    location = organization.locations.first
     address = location.address
     expect(address.street_1).to eq '1 S Compton Ave'
     expect(address.city).to eq     'St Louis'

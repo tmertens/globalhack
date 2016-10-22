@@ -1,5 +1,5 @@
 class Address < ApplicationRecord
-  has_many :housing_locations
+  has_many :locations
 
   # IGNORING TERRITORIES
   STATES = %w(AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY
