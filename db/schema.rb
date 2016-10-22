@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022092110) do
+ActiveRecord::Schema.define(version: 20161022101927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,12 +41,13 @@ ActiveRecord::Schema.define(version: 20161022092110) do
   end
 
   create_table "clients", force: :cascade do |t|
-    t.uuid     "uuid"
+    t.uuid     "uuid",           null: false
     t.string   "informal_name"
     t.integer  "primary_client"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["primary_client"], name: "index_clients_on_primary_client", using: :btree
+    t.index ["uuid"], name: "index_clients_on_uuid", using: :btree
   end
 
   create_table "clients_organizations", force: :cascade do |t|
@@ -67,34 +68,21 @@ ActiveRecord::Schema.define(version: 20161022092110) do
     t.datetime "updated_at",       null: false
   end
 
-  create_table "housing_attributes", force: :cascade do |t|
-    t.integer  "housing_location_id"
-    t.integer  "service_offering_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.index ["housing_location_id"], name: "index_housing_attributes_on_housing_location_id", using: :btree
-    t.index ["service_offering_id"], name: "index_housing_attributes_on_service_offering_id", using: :btree
+  create_table "housing_units", force: :cascade do |t|
+    t.integer  "location_id"
+    t.string   "unit_name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["location_id"], name: "index_housing_units_on_location_id", using: :btree
   end
 
-  create_table "housing_locations", force: :cascade do |t|
+  create_table "locations", force: :cascade do |t|
     t.integer  "organization_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["organization_id"], name: "index_housing_locations_on_organization_id", using: :btree
-  end
-
-  create_table "housing_units", force: :cascade do |t|
-    t.integer  "housing_location_id"
-    t.string   "unit_name"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.index ["housing_location_id"], name: "index_housing_units_on_housing_location_id", using: :btree
-  end
-
-  create_table "offering_categories", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "address_id"
+    t.index ["address_id"], name: "index_locations_on_address_id", using: :btree
+    t.index ["organization_id"], name: "index_locations_on_organization_id", using: :btree
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -129,11 +117,18 @@ ActiveRecord::Schema.define(version: 20161022092110) do
   end
 
   create_table "service_offerings", force: :cascade do |t|
+    t.integer  "location_id"
+    t.integer  "service_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["location_id"], name: "index_service_offerings_on_location_id", using: :btree
+    t.index ["service_id"], name: "index_service_offerings_on_service_id", using: :btree
+  end
+
+  create_table "services", force: :cascade do |t|
     t.string   "name"
-    t.integer  "offering_category_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.index ["offering_category_id"], name: "index_service_offerings_on_offering_category_id", using: :btree
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -156,12 +151,11 @@ ActiveRecord::Schema.define(version: 20161022092110) do
   add_foreign_key "client_profiles", "clients"
   add_foreign_key "clients_organizations", "clients"
   add_foreign_key "clients_organizations", "organizations"
-  add_foreign_key "housing_attributes", "housing_locations"
-  add_foreign_key "housing_attributes", "service_offerings"
-  add_foreign_key "housing_locations", "organizations"
-  add_foreign_key "housing_units", "housing_locations"
+  add_foreign_key "housing_units", "locations"
+  add_foreign_key "locations", "organizations"
   add_foreign_key "payments", "clients"
   add_foreign_key "payments", "organizations"
   add_foreign_key "people", "clients"
-  add_foreign_key "service_offerings", "offering_categories"
+  add_foreign_key "service_offerings", "locations"
+  add_foreign_key "service_offerings", "services"
 end
