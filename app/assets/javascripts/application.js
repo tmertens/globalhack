@@ -12,9 +12,7 @@
 //
 //= require jquery
 //= require bootstrap_init
-//= require bootstrap
 //= require jquery_ujs
 //= require cable
 //= require turbolinks
-//= require pages
-//= require_tree .
+//= require_tree ./pages
