@@ -26,6 +26,30 @@ ActiveRecord::Schema.define(version: 20161022020237) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "client_service_providers", force: :cascade do |t|
+    t.integer  "client_id"
+    t.integer  "service_provider_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["client_id"], name: "index_client_service_providers_on_client_id", using: :btree
+    t.index ["service_provider_id"], name: "index_client_service_providers_on_service_provider_id", using: :btree
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.date     "date_of_birth"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "gender"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "service_providers", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -43,4 +67,6 @@ ActiveRecord::Schema.define(version: 20161022020237) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "client_service_providers", "clients"
+  add_foreign_key "client_service_providers", "service_providers"
 end
