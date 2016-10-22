@@ -1,1 +1,0 @@
-json.array! @clients_organizations, partial: 'clients_organizations/clients_organization', as: :clients_organization

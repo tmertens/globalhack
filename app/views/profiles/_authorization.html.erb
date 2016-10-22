@@ -1,0 +1,10 @@
+<% unless @profile.authorized? %>
+  <div>
+    <p>
+      <strong>Authorize yourself with <%= @profile.username %>'s Public Key: </strong>
+    </p>
+    <p>
+      <input type="text" name="secret">
+    </p>
+  </div>
+<% end %>
