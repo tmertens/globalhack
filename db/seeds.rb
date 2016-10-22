@@ -70,23 +70,15 @@ service_offerings = Location::AddServices.call!(location: location,
 service_offerings.each do |offering|
   offering
 end
-||||||| merged common ancestors
-ClientProfile.create!(username: 'PowerMan',
-                      client: luke,
-                      bio: "Luke Cage is an ex-convict, who was imprisoned for a crime he did not commit and gained the powers of superhuman strength and unbreakable skin after he was subjected to an involuntary experiment. He's getting back on his feet after his building was blown up by Cottonmouth",
-                      require_secret: true
-)
-=======
-ClientProfile.create!(username: 'PowerMan',
-                      client: luke,
-                      bio: "Luke Cage is an ex-convict, who was imprisoned for a crime he did not commit and gained the powers of superhuman strength and unbreakable skin after he was subjected to an involuntary experiment. He's getting back on his feet after his building was blown up by Cottonmouth",
-                      require_secret: true
-)
 
+ClientProfile.create!(username: 'PowerMan',
+                      client: luke,
+                      bio: "Luke Cage is an ex-convict, who was imprisoned for a crime he did not commit and gained the powers of superhuman strength and unbreakable skin after he was subjected to an involuntary experiment. He's getting back on his feet after his building was blown up by Cottonmouth",
+                      require_secret: true
+)
 Address.create!(
   street_1: '201 S 20th St.',
   city:     'St. Louis',
   state:    'MO',
   zipcode:  63103
 )
->>>>>>> Static and embedded map examples

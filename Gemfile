@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap', '~> 4.0.0.alpha4'
+gem 'underscore-rails'
 
 gem 'devise'
 gem 'verbalize'

@@ -15,4 +15,7 @@
 //= require jquery_ujs
 //= require cable
 //= require turbolinks
+//= require underscore
+//= require gmaps/google
 //= require_tree ./pages
+//= require_tree .

@@ -1,7 +1,9 @@
 class MapsController < ApplicationController
-
   def show
-    @address = Address.first
+    @addresses = Address.all
+    @hash = Gmaps4rails.build_markers(@addresses) do |address, marker|
+      marker.lat address.latitude
+      marker.lng address.longitude
+    end
   end
-
 end
