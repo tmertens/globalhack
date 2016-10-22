@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022133426) do
+ActiveRecord::Schema.define(version: 20161022141506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,9 +33,8 @@ ActiveRecord::Schema.define(version: 20161022133426) do
     t.string   "username"
     t.text     "bio"
     t.boolean  "require_secret"
-    t.string   "hashed_public_secret"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.index ["client_id"], name: "index_client_profiles_on_client_id", using: :btree
     t.index ["username"], name: "index_client_profiles_on_username", unique: true, using: :btree
   end
@@ -88,6 +87,14 @@ ActiveRecord::Schema.define(version: 20161022133426) do
     t.integer  "address_id"
     t.index ["address_id"], name: "index_locations_on_address_id", using: :btree
     t.index ["organization_id"], name: "index_locations_on_organization_id", using: :btree
+  end
+
+  create_table "magic_phrases", force: :cascade do |t|
+    t.uuid     "client_uuid"
+    t.string   "hashed_phrase"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["client_uuid"], name: "index_magic_phrases_on_client_uuid", using: :btree
   end
 
   create_table "organizations", force: :cascade do |t|

@@ -5,8 +5,6 @@ class CreateClientProfiles < ActiveRecord::Migration[5.0]
       t.string     :username
       t.text       :bio
       t.boolean    :require_secret
-      t.string     :hashed_public_secret
-
       t.timestamps
     end
 
