@@ -6,8 +6,10 @@
   </head>
 
   <body>
+    <header>
+      <%= render 'layouts/nav_bar'%>
+    </header>
     <div class="container">
-    	<%= render 'layouts/nav_bar'%>
       <%= render 'layouts/alert_notices' %>
       <%= yield %>
     </div>
