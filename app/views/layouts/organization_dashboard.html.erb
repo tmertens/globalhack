@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Globalhack</title>
+    <%= render partial: 'layouts/common_header' %>
+
+    <%= stylesheet_link_tag    'organization_dashboard', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'organization_dashboard', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="main_container">
+        <%= render partial: 'layouts/side_menu' %>
+        <%= render partial: 'layouts/top_nav' %>
+
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

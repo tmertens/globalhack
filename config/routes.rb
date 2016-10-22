@@ -8,4 +8,8 @@ Rails.application.routes.draw do
 
   # Grape API routes will be mounted under the `api` namespace
   mount ::HousingFirst::Api::Base => '/'
+
+  namespace :organization do
+    get '/' => 'dashboard#index'
+  end
 end
