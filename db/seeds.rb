@@ -12,8 +12,11 @@ angelina = Client.create!(informal_name: 'Angelina')
 DependentClient.create!(primary_client_id: jon.id, dependent_client_id: angelina.id)
 
 luke = Client.create!(informal_name: 'Luke')
-MagicPhrase.create!(client_uuid: luke.uuid, magic_phrase: 'correct horse battery staple')
+MagicPhrase.create!(client_uuid: luke.uuid) do |phrase|
+  phrase.plain_magic_phrase = 'correct horse battery staple'
+end
 ClientProfile.create!(username: 'PowerMan',
-  bio: "Luke Cage is an ex-convict, who was imprisoned for a crime he did not commit and gained the powers of superhuman strength and unbreakable skin after he was subjected to an involuntary experiment. He's getting back on his feet after his building was blown up by Cottonmouth",
-  require_secret: true
+                      client: luke,
+                      bio: "Luke Cage is an ex-convict, who was imprisoned for a crime he did not commit and gained the powers of superhuman strength and unbreakable skin after he was subjected to an involuntary experiment. He's getting back on his feet after his building was blown up by Cottonmouth",
+                      require_secret: true
 )

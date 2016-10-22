@@ -20,7 +20,7 @@ class MagicPhrase < ApplicationRecord
 
   def hash_the_magic_phrase
     if plain_magic_phrase
-      self.hashed_public_secret = self.class.digest plain_magic_phrase
+      self.hashed_phrase = self.class.digest plain_magic_phrase
     end
   end
 
