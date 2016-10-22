@@ -1,6 +1,7 @@
 *.gem
 *.rbc
 log/*.log
+/node_modules
 /.idea
 /.config
 /coverage/
