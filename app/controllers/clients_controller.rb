@@ -20,7 +20,7 @@ class ClientsController < ApplicationController
 
   def update
     @client = Client.find_by(id: params['id'])
-    @client.client_profile.avatar = params['avatar']
+    @client.client_profile.avatar = params['client']['avatar']
     if @client.save
       redirect_to @client
     else
@@ -31,4 +31,5 @@ class ClientsController < ApplicationController
   def client_params
     params.require(:client).permit(:informal_name, :avatar)
   end
+
 end
