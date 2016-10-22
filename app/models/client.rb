@@ -1,5 +1,5 @@
 class Client < ApplicationRecord
-  enum gender: { 
+  enum gender: {
     male:   0,
     female: 1,
     other:  2
