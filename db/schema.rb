@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022030549) do
+ActiveRecord::Schema.define(version: 20161022050758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 20161022030549) do
     t.datetime "updated_at",       null: false
   end
 
+  create_table "housing_attributes", force: :cascade do |t|
+    t.integer  "housing_location_id"
+    t.integer  "service_offering_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["housing_location_id"], name: "index_housing_attributes_on_housing_location_id", using: :btree
+    t.index ["service_offering_id"], name: "index_housing_attributes_on_service_offering_id", using: :btree
+  end
+
   create_table "housing_locations", force: :cascade do |t|
     t.integer  "service_provider_id"
     t.datetime "created_at",          null: false
@@ -68,6 +77,20 @@ ActiveRecord::Schema.define(version: 20161022030549) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["housing_location_id"], name: "index_housing_units_on_housing_location_id", using: :btree
+  end
+
+  create_table "offering_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "service_offerings", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "offering_category_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["offering_category_id"], name: "index_service_offerings_on_offering_category_id", using: :btree
   end
 
   create_table "service_providers", force: :cascade do |t|
@@ -95,6 +118,9 @@ ActiveRecord::Schema.define(version: 20161022030549) do
 
   add_foreign_key "client_service_providers", "clients"
   add_foreign_key "client_service_providers", "service_providers"
+  add_foreign_key "housing_attributes", "housing_locations"
+  add_foreign_key "housing_attributes", "service_offerings"
   add_foreign_key "housing_locations", "service_providers"
   add_foreign_key "housing_units", "housing_locations"
+  add_foreign_key "service_offerings", "offering_categories"
 end
