@@ -15,6 +15,7 @@ luke = Client.create!(informal_name: 'Luke')
 MagicPhrase.create!(client_uuid: luke.uuid) do |phrase|
   phrase.plain_magic_phrase = 'correct horse battery staple'
 end
+<<<<<<< a5a165572faeb469ba3441a447e540c6bfb1b828
 
 ClientProfile.create_with(client: luke,
                           bio: "Luke Cage is an ex-convict, who was imprisoned for a crime he did not commit and gained the powers of superhuman strength and unbreakable skin after he was subjected to an involuntary experiment. He's getting back on his feet after his building was blown up by Cottonmouth",
@@ -69,3 +70,23 @@ service_offerings = Location::AddServices.call!(location: location,
 service_offerings.each do |offering|
   offering
 end
+||||||| merged common ancestors
+ClientProfile.create!(username: 'PowerMan',
+                      client: luke,
+                      bio: "Luke Cage is an ex-convict, who was imprisoned for a crime he did not commit and gained the powers of superhuman strength and unbreakable skin after he was subjected to an involuntary experiment. He's getting back on his feet after his building was blown up by Cottonmouth",
+                      require_secret: true
+)
+=======
+ClientProfile.create!(username: 'PowerMan',
+                      client: luke,
+                      bio: "Luke Cage is an ex-convict, who was imprisoned for a crime he did not commit and gained the powers of superhuman strength and unbreakable skin after he was subjected to an involuntary experiment. He's getting back on his feet after his building was blown up by Cottonmouth",
+                      require_secret: true
+)
+
+Address.create!(
+  street_1: '201 S 20th St.',
+  city:     'St. Louis',
+  state:    'MO',
+  zipcode:  63103
+)
+>>>>>>> Static and embedded map examples

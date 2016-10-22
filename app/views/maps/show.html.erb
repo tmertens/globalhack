@@ -1,0 +1,3 @@
+<%= image_tag static_map(coordinates_for @address) %>
+
+<%= render partial: 'embedded_map', locals: { address: @address } %>
