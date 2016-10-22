@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'verbalize'
-
+gem 'geocoder'
 gem 'grape'
 gem 'hashie-forbidden_attributes'
 
