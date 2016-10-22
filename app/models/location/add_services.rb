@@ -8,8 +8,7 @@ class Location < ApplicationRecord
       service_ids.each do |service_id|
         ServiceOffering.create! do |offering|
           offering.service_id = service_id
-          offering.organization = organization
-          offering.address = address if address.present?
+          offering.location = location
         end
       end
     end

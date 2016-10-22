@@ -1,7 +1,7 @@
 class Location < ApplicationRecord
   belongs_to :organization
-  has_many   :housing_units
+  has_many   :service_offerings
+  has_many   :services, through: :service_offerings
   has_many   :contacts, as: :contactable
-  has_many   :housing_attributes
   belongs_to :address
 end

@@ -40,6 +40,6 @@ describe 'Creating a new organization' do
     email = location.contacts.find_by(contact_type: :email_address)
     expect(email.value).to eq 'chaps.chippers@example.test'
 
-    expect(location.services).to match_array [service_a, service_c, service_d, service_e]
+    expect(location.services).to match_array [service_a, service_c, service_d, service_f]
   end
 end

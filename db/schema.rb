@@ -55,15 +55,6 @@ ActiveRecord::Schema.define(version: 20161022101927) do
     t.datetime "updated_at",       null: false
   end
 
-  create_table "housing_attributes", force: :cascade do |t|
-    t.integer  "location_id"
-    t.integer  "service_offering_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.index ["location_id"], name: "index_housing_attributes_on_location_id", using: :btree
-    t.index ["service_offering_id"], name: "index_housing_attributes_on_service_offering_id", using: :btree
-  end
-
   create_table "housing_units", force: :cascade do |t|
     t.integer  "location_id"
     t.string   "unit_name"
@@ -102,10 +93,11 @@ ActiveRecord::Schema.define(version: 20161022101927) do
   end
 
   create_table "service_offerings", force: :cascade do |t|
-    t.string   "name"
+    t.integer  "location_id"
     t.integer  "service_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["location_id"], name: "index_service_offerings_on_location_id", using: :btree
     t.index ["service_id"], name: "index_service_offerings_on_service_id", using: :btree
   end
 
@@ -134,10 +126,9 @@ ActiveRecord::Schema.define(version: 20161022101927) do
 
   add_foreign_key "clients_organizations", "clients"
   add_foreign_key "clients_organizations", "organizations"
-  add_foreign_key "housing_attributes", "locations"
-  add_foreign_key "housing_attributes", "service_offerings"
   add_foreign_key "housing_units", "locations"
   add_foreign_key "locations", "organizations"
   add_foreign_key "people", "clients"
+  add_foreign_key "service_offerings", "locations"
   add_foreign_key "service_offerings", "services"
 end
