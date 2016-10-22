@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(version: 20161022053617) do
     t.datetime "updated_at",       null: false
   end
 
+  create_table "housing_attributes", force: :cascade do |t|
+    t.integer  "housing_location_id"
+    t.integer  "service_offering_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["housing_location_id"], name: "index_housing_attributes_on_housing_location_id", using: :btree
+    t.index ["service_offering_id"], name: "index_housing_attributes_on_service_offering_id", using: :btree
+  end
+
   create_table "housing_locations", force: :cascade do |t|
     t.integer  "organization_id"
     t.datetime "created_at",      null: false
@@ -68,6 +77,12 @@ ActiveRecord::Schema.define(version: 20161022053617) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["housing_location_id"], name: "index_housing_units_on_housing_location_id", using: :btree
+  end
+
+  create_table "offering_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -90,6 +105,14 @@ ActiveRecord::Schema.define(version: 20161022053617) do
     t.index ["gender"], name: "index_people_on_gender", using: :btree
   end
 
+  create_table "service_offerings", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "offering_category_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["offering_category_id"], name: "index_service_offerings_on_offering_category_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -109,7 +132,10 @@ ActiveRecord::Schema.define(version: 20161022053617) do
 
   add_foreign_key "clients_organizations", "clients"
   add_foreign_key "clients_organizations", "organizations"
+  add_foreign_key "housing_attributes", "housing_locations"
+  add_foreign_key "housing_attributes", "service_offerings"
   add_foreign_key "housing_locations", "organizations"
   add_foreign_key "housing_units", "housing_locations"
   add_foreign_key "people", "clients"
+  add_foreign_key "service_offerings", "offering_categories"
 end
