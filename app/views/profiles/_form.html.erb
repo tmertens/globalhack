@@ -1,0 +1,27 @@
+<%= form_tag("/profiles/create", method: :post) do %>
+  <% if client_profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(client_profile.errors.count, "error") %> prohibited this client_profile from being saved:</h2>
+
+      <ul>
+      <% client_profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= label_tag :bio %>
+    <%= text_area_tag 'client_profile/bio' %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :username %>
+    <%= text_area_tag 'client_profile/username' %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag('Create Profile') %>
+  </div>
+<% end %>

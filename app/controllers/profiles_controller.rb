@@ -2,6 +2,10 @@ require 'normalize'
 
 class ProfilesController < ApplicationController
 
+  def new
+    @client_profile = ClientProfile.new
+  end
+
   def show
     params.require(:username)
     params[:secret] ||= ''
