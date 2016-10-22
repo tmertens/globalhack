@@ -1,5 +1,5 @@
-module Organization
+module Admin
   class BaseController < ApplicationController
-    layout 'organization_dashboard'
+    layout 'admin_dashboard'
   end
 end
