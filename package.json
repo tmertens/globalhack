@@ -1,0 +1,19 @@
+{
+  "name": "housing_first",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmertens/globalhack.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tmertens/globalhack/issues"
+  },
+  "homepage": "https://github.com/tmertens/globalhack#readme"
+}
