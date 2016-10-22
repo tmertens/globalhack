@@ -23,5 +23,9 @@ module Globalhack
     # -- all .rb files in that directory are automatically loaded.
     config.paths.add File.join('lib'), glob: File.join('**', '*.rb')
     config.autoload_paths += Dir[Rails.root.join('lib', '*')]
+
+    config.assets.paths << Rails.root.join('node_modules')
+
+    config.assets.precompile += ['organization_dashboard.js', 'organization_dashboard.css', 'late_load.js']
   end
 end
