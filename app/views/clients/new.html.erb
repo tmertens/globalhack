@@ -1,1 +1,5 @@
-<%= render partial: 'form' %>
+<%= form_for(@client) do |f| %>
+  <%= f.label 'Username' %>
+  <%= f.text_field :informal_name %>
+  <%= f.submit %>
+<% end %>

@@ -1,5 +1,5 @@
-<%= form_for(@client, url: {action: "create"}, html: {class: "nifty_form"}) do |f| %>
-  <%= f.label 'Informal Name' %>
-  <%= f.text_field :informal_name %>
-  <%= f.submit "Create Client" %>
+<%= form_for @client, url: client_path(@client), html: { multipart: true } do |f| %>
+  <%= f.label 'Picture' %>
+  <%= f.file_field :avatar %>
+  <%= f.submit 'Update Profile'%>
 <% end %>
