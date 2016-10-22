@@ -4,8 +4,8 @@ class PaymentsController < ApplicationController
     result = OurBraintree::CompleteTransaction.call(params)
     if result[:success]
       flash[:notice] = "Your Payment Was Successfull"
-      @payment = result[:payment]
-      render :show
+      @payment = result[:value][:payment]
+      redirect_to payment_path(@payment.id)
     else
       flash[:error] = result[:value]
       redirect_to :back
@@ -13,7 +13,7 @@ class PaymentsController < ApplicationController
   end
 
   def show
-    @payment = Payment.find(id: params[:id])
+    @payment = Payment.find(params[:id])
   end
 
 end

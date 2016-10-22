@@ -13,17 +13,19 @@ module OurBraintree
         possible_payment = PossiblePayment.includes(:client).find_by_digested_token(params['digested_token'])
         client = possible_payment.client
         organization = client.organizations.find(params['organization_id'])
-        payment = Payment.create!(
+
+        payment = Payment.new(
           client_id: possible_payment.client_id,
           organization_id: organization.id,
           possible_payment_id: possible_payment.id,
 
           clearing_house: 'braintree',
-          transaction_id: result.transaction[:id],
+          transaction_id: result.transaction.id,
 
-          amount_cents:  result.transaction[:amount_cents],
+          amount: params['amount'],
           eff_date: Date.current,
         )
+        payment.save!
 
         {
           success: true,

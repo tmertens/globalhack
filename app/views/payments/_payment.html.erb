@@ -1,13 +1,13 @@
 <div>
   <p>
-    Your payment to <%= @organization.name %>, inspired by <%= @client.profile.username %>,
+    Your payment to <%= @payment.organization.name %>, inspired by <%= @payment.client.client_profile.username %>,
     in the amount of <%= @payment.amount %> was completed on <%= @payment.eff_date %>.
   </p>
 </div>
 
 <div>
   <p>
-    Processed By: <%= @payment.clearing_house%>
+    Processed By: <%= @payment.clearing_house %>
   </p>
   <p>
     Transaction ID: <%= @payment.transaction_id %>

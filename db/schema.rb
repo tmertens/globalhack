@@ -102,6 +102,8 @@ ActiveRecord::Schema.define(version: 20161022182252) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "owner_id"
+    t.index ["owner_id"], name: "index_organizations_on_owner_id", using: :btree
   end
 
   create_table "payments", force: :cascade do |t|
@@ -167,6 +169,12 @@ ActiveRecord::Schema.define(version: 20161022182252) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -176,6 +184,7 @@ ActiveRecord::Schema.define(version: 20161022182252) do
   add_foreign_key "clients_organizations", "organizations"
   add_foreign_key "housing_units", "locations"
   add_foreign_key "locations", "organizations"
+  add_foreign_key "organizations", "users", column: "owner_id"
   add_foreign_key "people", "clients"
   add_foreign_key "service_offerings", "locations"
   add_foreign_key "service_offerings", "services"

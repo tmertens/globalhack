@@ -14,13 +14,13 @@ DependentClient.create!(primary_client_id: jon.id, dependent_client_id: angelina
 luke = Client.create!(informal_name: 'Luke')
 MagicPhrase.create!(client_uuid: luke.uuid, plain_magic_phrase: 'correct horse battery staple')
 
-
 peter = Organization.create(name: 'Peter and Paul Foundation')
 luke.organizations << peter
 
 ClientProfile.create!(
-  client_id: luke.id,
   username: 'powerman',
+  client: luke,
   bio: "Luke Cage is an ex-convict, who was imprisoned for a crime he did not commit and gained the powers of superhuman strength and unbreakable skin after he was subjected to an involuntary experiment. He's getting back on his feet after his building was blown up by Cottonmouth",
-  require_secret: true
+  require_secret: true,
+  avatar_file_name: '/public/missing.png'
 )
