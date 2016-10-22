@@ -11,7 +11,7 @@ class EligibilityCriteria < ApplicationRecord
   has_one :category, through: :joins_eligibility_categories
 
 
-  scope(:categories) -> { joins(:joins_eligibility_criteria)
+  scope :categories, -> { joins(:joins_eligibility_criteria)
                             .where.not(eligibility_categories: { id: nil })
                             .uniq }
 end
