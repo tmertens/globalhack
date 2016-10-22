@@ -1,19 +1,33 @@
-<header>
-	<h1>Housing First</h1>
-</header>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card card-block">
+      <h3 class="card-title">Continuum of Care Providers</h3>
+      <p class="card-text">Housing First streamlines intake and communication between Continuum of Care service providers.</p>
+      <p><%= link_to 'Get Started', new_user_registration_path, class: "btn btn-primary" %></p>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card card-block">
+      <h3 class="card-title">Search Organizations that Can Help</h3>
+      <p class="card-text">If you or someone you know may need housing assistance, search nearby organizations.</p>
+      <a href="#" class="btn btn-primary">Find Support</a>
+    </div>
+  </div>
+</div>
 
-<h2>Are you a CoC provider assisting homeless populations?</h2>
-<p>Housing First strives to streamline intake and communication between service providers.</p>
-<ul>
-	<li><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-default", role: 'button' %></li>
-	<li><%= link_to "Log In", new_user_session_path %></li>
-	<li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
-</ul>
-
-<h2>Other things that should be on the landing page....</h2>
-<ul>
-	<li>Form for concerned citizen to alert service providers of someone who needs care</li>
-	<li>Info about what housing first service does</li>
-</ul>
-
-<%= render 'maps' %>
+<div class="row">
+  <div class="col-sm-6">
+	  <div class="card card-block">
+	    <h3 class="card-title">People Who Care</h3>
+	    <p class="card-text">Find out how you can support your neighbors in need of stable housing.</p>
+	    <a href="#" class="btn btn-primary">Learn More</a>
+	  </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card card-block">
+      <h3 class="card-title">Donate to a CoC Provider</h3>
+      <p class="card-text">If you or someone you know may need housing assistance, search nearby organizations.</p>
+      <a href="#" class="btn btn-primary">Donate Now</a>
+    </div>
+  </div>
+</div>
