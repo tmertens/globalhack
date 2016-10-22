@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022141506) do
+ActiveRecord::Schema.define(version: 20161022182252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,12 +107,15 @@ ActiveRecord::Schema.define(version: 20161022141506) do
   create_table "payments", force: :cascade do |t|
     t.integer  "client_id"
     t.integer  "organization_id"
-    t.date     "eff_date"
-    t.integer  "amount_cents"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["client_id"], name: "index_payments_on_client_id", using: :btree
-    t.index ["organization_id"], name: "index_payments_on_organization_id", using: :btree
+    t.integer  "possible_payment_id"
+    t.string   "clearing_house",      null: false
+    t.string   "transaction_id",      null: false
+    t.date     "eff_date",            null: false
+    t.integer  "amount_cents",        null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["clearing_house"], name: "index_payments_on_clearing_house", using: :btree
+    t.index ["eff_date"], name: "index_payments_on_eff_date", using: :btree
   end
 
   create_table "people", force: :cascade do |t|
@@ -126,6 +129,14 @@ ActiveRecord::Schema.define(version: 20161022141506) do
     t.index ["client_id"], name: "index_people_on_client_id", using: :btree
     t.index ["date_of_birth"], name: "index_people_on_date_of_birth", using: :btree
     t.index ["gender"], name: "index_people_on_gender", using: :btree
+  end
+
+  create_table "possible_payments", force: :cascade do |t|
+    t.integer  "client_id"
+    t.string   "digested_token"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["digested_token"], name: "index_possible_payments_on_digested_token", using: :btree
   end
 
   create_table "service_offerings", force: :cascade do |t|
@@ -165,8 +176,6 @@ ActiveRecord::Schema.define(version: 20161022141506) do
   add_foreign_key "clients_organizations", "organizations"
   add_foreign_key "housing_units", "locations"
   add_foreign_key "locations", "organizations"
-  add_foreign_key "payments", "clients"
-  add_foreign_key "payments", "organizations"
   add_foreign_key "people", "clients"
   add_foreign_key "service_offerings", "locations"
   add_foreign_key "service_offerings", "services"

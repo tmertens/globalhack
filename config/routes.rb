@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'profiles/:username' => 'profiles#show'
 
+  resources :payments, only: [:create, :show]
+
   namespace :admin do
     get '/' => 'dashboard#index'
   end
