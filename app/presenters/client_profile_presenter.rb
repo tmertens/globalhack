@@ -20,14 +20,12 @@ class ClientProfilePresenter
     profile.secret_not_required? || correct_secret_provided?
   end
 
-  private
+  # private
 
   attr_reader :profile, :provided_text_secret
 
   def correct_secret_provided?
-    defined?(:@correct_secret_provided) or
-      @correct_secret_provided = (hashed_provided_secret == profile.hashed_public_secret)
-    @correct_secret_provided
+    hashed_provided_secret == profile.hashed_public_secret
   end
 
   def hashed_provided_secret
