@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   mount ::HousingFirst::Api::Base => '/'
 
   resources :client_profiles
+  resources :clients
 end
