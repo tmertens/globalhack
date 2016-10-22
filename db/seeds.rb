@@ -15,9 +15,11 @@ luke = Client.create!(informal_name: 'Luke')
 MagicPhrase.create!(client_uuid: luke.uuid) do |phrase|
   phrase.plain_magic_phrase = 'correct horse battery staple'
 end
+
 ClientProfile.create_with(client: luke,
                           bio: "Luke Cage is an ex-convict, who was imprisoned for a crime he did not commit and gained the powers of superhuman strength and unbreakable skin after he was subjected to an involuntary experiment. He's getting back on his feet after his building was blown up by Cottonmouth",
-                          require_secret: true)
+                          require_secret: true,
+                          avatar_file_name: '/public/missing.png')
   .first_or_create!(username: 'PowerMan')
 
 services = ['Housing', 'Job Training', 'Counseling', 'Veteran Services',
@@ -67,4 +69,3 @@ service_offerings = Location::AddServices.call!(location: location,
 service_offerings.each do |offering|
   offering
 end
-
