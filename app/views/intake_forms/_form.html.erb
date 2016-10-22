@@ -1,0 +1,72 @@
+<%= form_for(intake_form) do |f| %>
+  <% if intake_form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(intake_form.errors.count, "error") %> prohibited this intake_form from being saved:</h2>
+
+      <ul>
+      <% intake_form.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= label_tag :client_informal_name, 'Informal name' %>
+    <%= text_field_tag 'client[informal_name]' %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :person_first_name, 'First name' %>
+    <%= text_field_tag 'person[first_name]' %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :person_last_name, 'Last name' %>
+    <%= text_field_tag 'person[last_name]' %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :person_date_of_birth, 'Date of birth' %>
+    <%= date_field_tag 'person[date_of_birth]' %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :person_gender, 'Gender' %>
+    <%= select_tag 'person[gender]', options_for_select(Person.humanized_genders) %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :person_ssn, 'SSN' %>
+    <%= text_field_tag 'person[ssn]' %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :person_number_of_dependents, 'Number of dependents' %>
+    <%= number_field_tag 'person[number_of_dependents]' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :utility_debt %>
+    <%= f.check_box :utility_debt %>
+  </div>
+
+  <div class="field">
+    <%= f.label :substance_abuse %>
+    <%= f.check_box :substance_abuse %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mental_illness %>
+    <%= f.check_box :mental_illness %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vispdat_score %>
+    <%= f.number_field :vispdat_score %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

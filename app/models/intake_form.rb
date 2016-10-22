@@ -1,0 +1,2 @@
+class IntakeForm < ApplicationRecord
+end
