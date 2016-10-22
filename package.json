@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/tmertens/globalhack/issues"
   },
-  "homepage": "https://github.com/tmertens/globalhack#readme"
+  "homepage": "https://github.com/tmertens/globalhack#readme",
+  "dependencies": {
+    "gentelella": "^1.3.0"
+  }
 }
