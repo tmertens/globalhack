@@ -1,6 +1,6 @@
-<%= @client.informal_name %>
+Show Page
 
-<%= form_for(@client) do |f| %>
-  <%= f.label 'yeah' %>
-  <%= f.submit 'Update Profile'%>
-<% end %>
+<%= @client.informal_name %>
+<%= image_tag @client.client_profile.avatar.url(:thumb) %>
+
+<%= render partial: 'form', locals: { client: @client } %>
