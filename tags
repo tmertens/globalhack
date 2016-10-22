@@ -1,0 +1,166 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AddAddressIdToHousingLocations	db/migrate/20161022101927_add_address_id_to_housing_locations.rb	/^class AddAddressIdToHousingLocations < ActiveRecord::Migration[5.0]$/;"	c
+AddServices	app/models/location/add_services.rb	/^  class AddServices$/;"	c	class:Location
+Address	app/models/address.rb	/^class Address < ApplicationRecord$/;"	c
+Address	app/models/address/create.rb	/^class Address < ApplicationRecord$/;"	c
+Admin	app/controllers/admin/base_controller.rb	/^module Admin$/;"	m
+Admin	app/controllers/admin/dashboard_controller.rb	/^module Admin$/;"	m
+Api	lib/housing_first/api/base.rb	/^  module Api$/;"	m	class:HousingFirst
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Globalhack
+ApplicationCable	app/channels/application_cable/channel.rb	/^module ApplicationCable$/;"	m
+ApplicationCable	app/channels/application_cable/connection.rb	/^module ApplicationCable$/;"	m
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+ApplicationJob	app/jobs/application_job.rb	/^class ApplicationJob < ActiveJob::Base$/;"	c
+ApplicationMailer	app/mailers/application_mailer.rb	/^class ApplicationMailer < ActionMailer::Base$/;"	c
+ApplicationRecord	app/models/application_record.rb	/^class ApplicationRecord < ActiveRecord::Base$/;"	c
+Base	lib/housing_first/api/base.rb	/^    class Base < Grape::API$/;"	c	class:HousingFirst.Api
+BaseController	app/controllers/admin/base_controller.rb	/^  class BaseController < ApplicationController$/;"	c	class:Admin
+BaseController	app/controllers/rails_api/base_controller.rb	/^  class BaseController < ApplicationController$/;"	c	class:RailsApi
+Channel	app/channels/application_cable/channel.rb	/^  class Channel < ActionCable::Channel::Base$/;"	c	class:ApplicationCable
+Client	app/models/client.rb	/^class Client < ApplicationRecord$/;"	c
+ClientProfile	app/models/client_profile.rb	/^class ClientProfile < ApplicationRecord$/;"	c
+ClientProfilePresenter	app/presenters/client_profile_presenter.rb	/^class ClientProfilePresenter$/;"	c
+ClientProfilesController	app/controllers/rails_api/client_profiles_controller.rb	/^  class ClientProfilesController < RailsApi::BaseController$/;"	c	class:RailsApi
+ClientProfilesHelper	app/helpers/client_profiles_helper.rb	/^module ClientProfilesHelper$/;"	m
+ClientsOrganization	app/models/clients_organization.rb	/^class ClientsOrganization < ApplicationRecord$/;"	c
+ClientsOrganizationsController	app/controllers/rails_api/clients_organizations_controller.rb	/^  class ClientsOrganizationsController < RailsApi::BaseController$/;"	c	class:RailsApi
+ClientsOrganizationsHelper	app/helpers/clients_organizations_helper.rb	/^module ClientsOrganizationsHelper$/;"	m
+Connection	app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	class:ApplicationCable
+Contact	app/models/contact.rb	/^class Contact < ApplicationRecord$/;"	c
+Contact	app/models/contact/create.rb	/^class Contact < ApplicationRecord$/;"	c
+Create	app/models/address/create.rb	/^  class Create$/;"	c	class:Address
+Create	app/models/contact/create.rb	/^  class Create$/;"	c	class:Contact
+Create	app/models/location/create.rb	/^  class Create$/;"	c	class:Location
+Create	app/models/organization/create.rb	/^  class Create$/;"	c	class:Organization
+CreateAddresses	db/migrate/20161022013745_create_addresses.rb	/^class CreateAddresses < ActiveRecord::Migration[5.0]$/;"	c
+CreateClientProfiles	db/migrate/20161022092016_create_client_profiles.rb	/^class CreateClientProfiles < ActiveRecord::Migration[5.0]$/;"	c
+CreateClients	db/migrate/20161022014258_create_clients.rb	/^class CreateClients < ActiveRecord::Migration[5.0]$/;"	c
+CreateClientsOrganizations	db/migrate/20161022014260_create_clients_organizations.rb	/^class CreateClientsOrganizations < ActiveRecord::Migration[5.0]$/;"	c
+CreateContacts	db/migrate/20161022021458_create_contacts.rb	/^class CreateContacts < ActiveRecord::Migration[5.0]$/;"	c
+CreateFirstLocation	app/models/organization/create_first_location.rb	/^  class CreateFirstLocation$/;"	c	class:Organization
+CreateHousingUnits	db/migrate/20161022020514_create_housing_units.rb	/^class CreateHousingUnits < ActiveRecord::Migration[5.0]$/;"	c
+CreateLocations	db/migrate/20161022020337_create_locations.rb	/^class CreateLocations < ActiveRecord::Migration[5.0]$/;"	c
+CreateOrganizations	db/migrate/20161022014259_create_organizations.rb	/^class CreateOrganizations < ActiveRecord::Migration[5.0]$/;"	c
+CreatePayments	db/migrate/20161022092110_create_payments.rb	/^class CreatePayments < ActiveRecord::Migration[5.0]$/;"	c
+CreatePeople	db/migrate/20161022053617_create_people.rb	/^class CreatePeople < ActiveRecord::Migration[5.0]$/;"	c
+CreateServiceOfferings	db/migrate/20161022030845_create_service_offerings.rb	/^class CreateServiceOfferings < ActiveRecord::Migration[5.0]$/;"	c
+CreateServices	db/migrate/20161022030819_create_services.rb	/^class CreateServices < ActiveRecord::Migration[5.0]$/;"	c
+DashboardController	app/controllers/admin/dashboard_controller.rb	/^  class DashboardController < BaseController$/;"	c	class:Admin
+DeviseCreateUsers	db/migrate/20161022020237_devise_create_users.rb	/^class DeviseCreateUsers < ActiveRecord::Migration[5.0]$/;"	c
+EnableUuids	db/migrate/20161022013744_enable_uuids.rb	/^class EnableUuids < ActiveRecord::Migration[5.0]$/;"	c
+Globalhack	config/application.rb	/^module Globalhack$/;"	m
+HousingAttribute	app/models/housing_attribute.rb	/^class HousingAttribute < ApplicationRecord$/;"	c
+HousingFirst	lib/housing_first/api/base.rb	/^module HousingFirst$/;"	m
+HousingUnit	app/models/housing_unit.rb	/^class HousingUnit < ApplicationRecord$/;"	c
+Location	app/models/location.rb	/^class Location < ApplicationRecord$/;"	c
+Location	app/models/location/add_services.rb	/^class Location < ApplicationRecord$/;"	c
+Location	app/models/location/create.rb	/^class Location < ApplicationRecord$/;"	c
+Normalize	lib/normalize.rb	/^class Normalize$/;"	c
+Organization	app/models/organization.rb	/^class Organization < ApplicationRecord$/;"	c
+Organization	app/models/organization/create.rb	/^class Organization < ApplicationRecord$/;"	c
+Organization	app/models/organization/create_first_location.rb	/^class Organization < ApplicationRecord$/;"	c
+OrganizationsController	app/controllers/rails_api/organizations_controller.rb	/^  class OrganizationsController < RailsApi::BaseController$/;"	c	class:RailsApi
+OrganizationsHelper	app/helpers/organizations_helper.rb	/^module OrganizationsHelper$/;"	m
+PagesController	app/controllers/pages_controller.rb	/^class PagesController < ApplicationController$/;"	c
+PagesHelper	app/helpers/pages_helper.rb	/^module PagesHelper$/;"	m
+Payment	app/models/payment.rb	/^class Payment < ApplicationRecord$/;"	c
+PeopleController	app/controllers/rails_api/people_controller.rb	/^  class PeopleController < RailsApi::BaseController$/;"	c	class:RailsApi
+PeopleHelper	app/helpers/people_helper.rb	/^module PeopleHelper$/;"	m
+Person	app/models/person.rb	/^class Person < ApplicationRecord$/;"	c
+ProfilesController	app/controllers/profiles_controller.rb	/^class ProfilesController < ApplicationController$/;"	c
+RailsApi	app/controllers/rails_api/base_controller.rb	/^module RailsApi$/;"	m
+RailsApi	app/controllers/rails_api/client_profiles_controller.rb	/^module RailsApi$/;"	m
+RailsApi	app/controllers/rails_api/clients_organizations_controller.rb	/^module RailsApi$/;"	m
+RailsApi	app/controllers/rails_api/organizations_controller.rb	/^module RailsApi$/;"	m
+RailsApi	app/controllers/rails_api/people_controller.rb	/^module RailsApi$/;"	m
+Service	app/models/service.rb	/^class Service < ApplicationRecord$/;"	c
+ServiceOffering	app/models/service_offering.rb	/^class ServiceOffering < ApplicationRecord$/;"	c
+User	app/models/user.rb	/^class User < ApplicationRecord$/;"	c
+authorized?	app/presenters/client_profile_presenter.rb	/^  def authorized?$/;"	f	class:ClientProfilePresenter
+bio	app/presenters/client_profile_presenter.rb	/^  def bio$/;"	f	class:ClientProfilePresenter
+call	app/models/address/create.rb	/^    def call$/;"	f	class:Address.Create
+call	app/models/contact/create.rb	/^    def call$/;"	f	class:Contact.Create
+call	app/models/location/add_services.rb	/^    def call$/;"	f	class:Location.AddServices
+call	app/models/location/create.rb	/^    def call$/;"	f	class:Location.Create
+call	app/models/organization/create.rb	/^    def call$/;"	f	class:Organization.Create
+call	app/models/organization/create_first_location.rb	/^    def call$/;"	f	class:Organization.CreateFirstLocation
+call	lib/normalize.rb	/^  def self.call(value)$/;"	F	class:Normalize
+change	db/migrate/20161022013744_enable_uuids.rb	/^  def change$/;"	f	class:EnableUuids
+change	db/migrate/20161022013745_create_addresses.rb	/^  def change$/;"	f	class:CreateAddresses
+change	db/migrate/20161022014258_create_clients.rb	/^  def change$/;"	f	class:CreateClients
+change	db/migrate/20161022014259_create_organizations.rb	/^  def change$/;"	f	class:CreateOrganizations
+change	db/migrate/20161022014260_create_clients_organizations.rb	/^  def change$/;"	f	class:CreateClientsOrganizations
+change	db/migrate/20161022020237_devise_create_users.rb	/^  def change$/;"	f	class:DeviseCreateUsers
+change	db/migrate/20161022020337_create_locations.rb	/^  def change$/;"	f	class:CreateLocations
+change	db/migrate/20161022020514_create_housing_units.rb	/^  def change$/;"	f	class:CreateHousingUnits
+change	db/migrate/20161022021458_create_contacts.rb	/^  def change$/;"	f	class:CreateContacts
+change	db/migrate/20161022030819_create_services.rb	/^  def change$/;"	f	class:CreateServices
+change	db/migrate/20161022030845_create_service_offerings.rb	/^  def change$/;"	f	class:CreateServiceOfferings
+change	db/migrate/20161022053617_create_people.rb	/^  def change$/;"	f	class:CreatePeople
+change	db/migrate/20161022092016_create_client_profiles.rb	/^  def change$/;"	f	class:CreateClientProfiles
+change	db/migrate/20161022092110_create_payments.rb	/^  def change$/;"	f	class:CreatePayments
+change	db/migrate/20161022101927_add_address_id_to_housing_locations.rb	/^  def change$/;"	f	class:AddAddressIdToHousingLocations
+client_profile	app/controllers/profiles_controller.rb	/^  def client_profile$/;"	f	class:ProfilesController
+client_profile_params	app/controllers/rails_api/client_profiles_controller.rb	/^      def client_profile_params$/;"	f	class:RailsApi.ClientProfilesController
+clients_organization_params	app/controllers/rails_api/clients_organizations_controller.rb	/^      def clients_organization_params$/;"	f	class:RailsApi.ClientsOrganizationsController
+correct_secret_provided?	app/presenters/client_profile_presenter.rb	/^  def correct_secret_provided?$/;"	f	class:ClientProfilePresenter
+create	app/controllers/rails_api/client_profiles_controller.rb	/^    def create$/;"	f	class:RailsApi.ClientProfilesController
+create	app/controllers/rails_api/clients_organizations_controller.rb	/^    def create$/;"	f	class:RailsApi.ClientsOrganizationsController
+create	app/controllers/rails_api/organizations_controller.rb	/^    def create$/;"	f	class:RailsApi.OrganizationsController
+create	app/controllers/rails_api/people_controller.rb	/^    def create$/;"	f	class:RailsApi.PeopleController
+create_email	app/models/organization/create_first_location.rb	/^    def create_email(location)$/;"	f	class:Organization.CreateFirstLocation
+create_phone	app/models/organization/create_first_location.rb	/^    def create_phone(location)$/;"	f	class:Organization.CreateFirstLocation
+destroy	app/controllers/rails_api/client_profiles_controller.rb	/^    def destroy$/;"	f	class:RailsApi.ClientProfilesController
+destroy	app/controllers/rails_api/clients_organizations_controller.rb	/^    def destroy$/;"	f	class:RailsApi.ClientsOrganizationsController
+destroy	app/controllers/rails_api/organizations_controller.rb	/^    def destroy$/;"	f	class:RailsApi.OrganizationsController
+destroy	app/controllers/rails_api/people_controller.rb	/^    def destroy$/;"	f	class:RailsApi.PeopleController
+digest	app/models/client_profile.rb	/^    def digest(value)$/;"	f	class:ClientProfile
+edit	app/controllers/rails_api/client_profiles_controller.rb	/^    def edit$/;"	f	class:RailsApi.ClientProfilesController
+edit	app/controllers/rails_api/clients_organizations_controller.rb	/^    def edit$/;"	f	class:RailsApi.ClientsOrganizationsController
+edit	app/controllers/rails_api/organizations_controller.rb	/^    def edit$/;"	f	class:RailsApi.OrganizationsController
+edit	app/controllers/rails_api/people_controller.rb	/^    def edit$/;"	f	class:RailsApi.PeopleController
+geocodable_address	app/models/address.rb	/^  def geocodable_address$/;"	f	class:Address
+hash_plain_text_secret	app/models/client_profile.rb	/^  def hash_plain_text_secret$/;"	f
+hashed_provided_secret	app/presenters/client_profile_presenter.rb	/^  def hashed_provided_secret$/;"	f	class:ClientProfilePresenter
+index	app/controllers/admin/dashboard_controller.rb	/^    def index$/;"	f	class:Admin.DashboardController
+index	app/controllers/pages_controller.rb	/^  def index$/;"	f	class:PagesController
+index	app/controllers/rails_api/client_profiles_controller.rb	/^    def index$/;"	f	class:RailsApi.ClientProfilesController
+index	app/controllers/rails_api/clients_organizations_controller.rb	/^    def index$/;"	f	class:RailsApi.ClientsOrganizationsController
+index	app/controllers/rails_api/organizations_controller.rb	/^    def index$/;"	f	class:RailsApi.OrganizationsController
+index	app/controllers/rails_api/people_controller.rb	/^    def index$/;"	f	class:RailsApi.PeopleController
+initialize	app/presenters/client_profile_presenter.rb	/^  def initialize(profile, provided_text_secret)$/;"	f	class:ClientProfilePresenter
+initialize	lib/normalize.rb	/^  def initialize$/;"	f	class:Normalize
+localized?	app/models/address/create.rb	/^    def localized?$/;"	f	class:Address.Create
+new	app/controllers/rails_api/client_profiles_controller.rb	/^    def new$/;"	f	class:RailsApi.ClientProfilesController
+new	app/controllers/rails_api/clients_organizations_controller.rb	/^    def new$/;"	f	class:RailsApi.ClientsOrganizationsController
+new	app/controllers/rails_api/organizations_controller.rb	/^    def new$/;"	f	class:RailsApi.OrganizationsController
+new	app/controllers/rails_api/people_controller.rb	/^    def new$/;"	f	class:RailsApi.PeopleController
+not_found	app/controllers/application_controller.rb	/^  def not_found$/;"	f	class:ApplicationController
+organization_params	app/controllers/rails_api/organizations_controller.rb	/^      def organization_params$/;"	f	class:RailsApi.OrganizationsController
+person_params	app/controllers/rails_api/people_controller.rb	/^      def person_params$/;"	f	class:RailsApi.PeopleController
+secret_not_required?	app/models/client_profile.rb	/^  def secret_not_required?$/;"	f
+set_client_profile	app/controllers/rails_api/client_profiles_controller.rb	/^      def set_client_profile$/;"	f	class:RailsApi.ClientProfilesController
+set_clients_organization	app/controllers/rails_api/clients_organizations_controller.rb	/^      def set_clients_organization$/;"	f	class:RailsApi.ClientsOrganizationsController
+set_organization	app/controllers/rails_api/organizations_controller.rb	/^      def set_organization$/;"	f	class:RailsApi.OrganizationsController
+set_person	app/controllers/rails_api/people_controller.rb	/^      def set_person$/;"	f	class:RailsApi.PeopleController
+set_uuid	app/models/client.rb	/^  def set_uuid$/;"	f	class:Client
+show	app/controllers/profiles_controller.rb	/^  def show$/;"	f	class:ProfilesController
+show	app/controllers/rails_api/client_profiles_controller.rb	/^    def show$/;"	f	class:RailsApi.ClientProfilesController
+show	app/controllers/rails_api/clients_organizations_controller.rb	/^    def show$/;"	f	class:RailsApi.ClientsOrganizationsController
+show	app/controllers/rails_api/organizations_controller.rb	/^    def show$/;"	f	class:RailsApi.OrganizationsController
+show	app/controllers/rails_api/people_controller.rb	/^    def show$/;"	f	class:RailsApi.PeopleController
+system!	bin/setup	/^def system!(*args)$/;"	f
+system!	bin/update	/^def system!(*args)$/;"	f
+update	app/controllers/rails_api/client_profiles_controller.rb	/^    def update$/;"	f	class:RailsApi.ClientProfilesController
+update	app/controllers/rails_api/clients_organizations_controller.rb	/^    def update$/;"	f	class:RailsApi.ClientsOrganizationsController
+update	app/controllers/rails_api/organizations_controller.rb	/^    def update$/;"	f	class:RailsApi.OrganizationsController
+update	app/controllers/rails_api/people_controller.rb	/^    def update$/;"	f	class:RailsApi.PeopleController
+username	app/controllers/profiles_controller.rb	/^  def username$/;"	f	class:ProfilesController
+username	app/presenters/client_profile_presenter.rb	/^  def username$/;"	f	class:ClientProfilePresenter
+valid_state?	app/models/address/create.rb	/^    def valid_state?$/;"	f	class:Address.Create
