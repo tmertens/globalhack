@@ -35,6 +35,7 @@ gem 'bootstrap', '~> 4.0.0.alpha4'
 gem 'devise'
 gem 'verbalize'
 gem 'geocoder'
+gem 'gmaps4rails'
 gem 'grape'
 gem 'hashie-forbidden_attributes'
 gem "paperclip", "~> 5.0.0"
