@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Client, type: :model do
-  it { should have_many :organizations }
-  it { should have_many :contacts }
-  it { should have_many :dependent_clients }
-  it { should belong_to :primary_client }
+  it { is_expected.to have_many(:organizations).through(:clients_organizations) }
+  it { is_expected.to have_many :contacts }
+  it { is_expected.to have_many :dependent_clients }
+  it { is_expected.to belong_to :primary_client }
 end
