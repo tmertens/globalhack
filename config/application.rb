@@ -26,6 +26,6 @@ module Globalhack
 
     config.assets.paths << Rails.root.join('node_modules')
 
-    config.assets.precompile += ['organization_dashboard.js', 'organization_dashboard.css', 'late_load.js']
+    config.assets.precompile += ['admin_dashboard.js', 'admin_dashboard.css', 'dashboard/late_load.js']
   end
 end
