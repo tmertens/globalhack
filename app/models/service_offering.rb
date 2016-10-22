@@ -1,4 +1,4 @@
 class ServiceOffering < ApplicationRecord
-  belongs_to :offering_category
+  belongs_to :service
   has_many :housing_attributes
 end

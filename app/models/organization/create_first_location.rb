@@ -16,6 +16,8 @@ class Organization < ApplicationRecord
                                         address:      address)
       create_phone(location)
       create_email(location)
+
+      location
     end
 
     private
