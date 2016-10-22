@@ -1,8 +1,8 @@
 class Address < ApplicationRecord
 
-  geocoded_by :full_street_address
+  geocoded_by :geocodable_address
 
-  def full_street_address
-    "#{street_1},#{street_2},#{city},#{state},#{zipcode}"
+  def geocodable_address
+    "#{street_1},#{city},#{state},#{zipcode}"
   end
 end

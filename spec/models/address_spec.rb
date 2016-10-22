@@ -8,10 +8,10 @@ RSpec.describe Address, type: :model do
                     zipcode: 63103)
   end
 
-  context '#full_street_address' do
-    it 'displays the full address' do
-      result = address.full_street_address
-      expect(result).to eq('1 S Compton Ave,,St Louis,MO,63103')
+  context '#geocodable_address' do
+    it 'displays the full address to be used by geocoder' do
+      result = address.geocodable_address
+      expect(result).to eq('1 S Compton Ave,St Louis,MO,63103')
     end
   end
 end
