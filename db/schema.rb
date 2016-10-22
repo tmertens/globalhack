@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022192019) do
+ActiveRecord::Schema.define(version: 20161022200336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,8 +104,8 @@ ActiveRecord::Schema.define(version: 20161022192019) do
 
   create_table "offering_eligibility_criteria", force: :cascade do |t|
     t.integer "service_offering_id"
-    t.integer "eligibility_requirement_id"
-    t.index ["eligibility_requirement_id"], name: "offering_eligibility_eligibility_index", using: :btree
+    t.integer "eligibility_criteria_id"
+    t.index ["eligibility_criteria_id"], name: "offering_eligibility_eligibility_index", using: :btree
     t.index ["service_offering_id"], name: "offering_eligibility_offering_index", using: :btree
   end
 
@@ -181,7 +181,7 @@ ActiveRecord::Schema.define(version: 20161022192019) do
   add_foreign_key "clients_organizations", "organizations"
   add_foreign_key "housing_units", "locations"
   add_foreign_key "locations", "organizations"
-  add_foreign_key "offering_eligibility_criteria", "eligibility_criteria", column: "eligibility_requirement_id"
+  add_foreign_key "offering_eligibility_criteria", "eligibility_criteria", column: "eligibility_criteria_id"
   add_foreign_key "offering_eligibility_criteria", "service_offerings"
   add_foreign_key "organizations", "users", column: "owner_id"
   add_foreign_key "payments", "clients"
