@@ -1,5 +1,6 @@
 class Client < ApplicationRecord
   has_one :person
+  has_one :client_profile
 
 #  has_many   :dependent_clients, class_name: 'Client'
 #  belongs_to :primary_client,    class_name: 'Client'

@@ -7,6 +7,7 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)
     if @client.save
+      @client.client_profile = ClientProfile.new
       redirect_to @client
     else
       render :new
