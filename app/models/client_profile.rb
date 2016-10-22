@@ -3,7 +3,7 @@ class ClientProfile < ApplicationRecord
 
   attr_accessor :avatar_file_name
 
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "http://www.stpatrickcenter.org/wp-content/uploads/2013/08/default-news.png"
 
   validates :username, uniqueness: true
 
