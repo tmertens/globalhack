@@ -1,6 +1,7 @@
 require 'housing_first/api/base'
 
 Rails.application.routes.draw do
+  resources :people
   resources :clients_organizations
   resources :organizations
   devise_for :users
