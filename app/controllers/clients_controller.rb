@@ -7,7 +7,7 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)
     if @client.save
-      @client.client_profile = ClientProfile.create!(client_id: @client.id, username: @client.informal_name)
+      @client.client_profile = ClientProfile.create!(client_id: @client.id, username: Normalize.call(@client.informal_name))
       redirect_to @client
     else
       render :new

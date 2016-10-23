@@ -13,4 +13,5 @@ class Organization < ApplicationRecord
 
   accepts_nested_attributes_for :location
 
+  scope :universal, -> { where universal: true }
 end

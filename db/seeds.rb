@@ -90,3 +90,13 @@ Address.find_or_create_by!(
   state:    'MO',
   zipcode:  63103
 )
+
+organization = Organization::Create.call!(name: 'Utility Debt Relief',
+                                          universal: true,
+                                          owner: user)
+organization = Organization::Create.call!(name: 'Future Services Assistance',
+                                          universal: true,
+                                          owner: user)
+
+
+
