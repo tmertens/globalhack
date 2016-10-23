@@ -5,7 +5,7 @@
     <%= render partial: 'layouts/common_header' %>
   </head>
 
-  <body class="ghbase">
+  <body class="ghbase <%= controller_name + ' ' + action_name %>">
     <header>
       <%= render 'layouts/nav_bar'%>
     </header>

@@ -14,7 +14,7 @@
         <%= render partial: 'layouts/side_menu' %>
         <%= render partial: 'layouts/top_nav' %>
 
-        <div class="right_col" role="main">
+        <div class="<%= controller_name + ' ' + action_name %> right_col" role="main">
           <%= yield %>
         </div>
       </div>
