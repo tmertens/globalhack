@@ -19,8 +19,9 @@ $deep-purple: #590E38;
 
 // LAYOUT
 
-$body-bg: $pearl;
-$header-bg: $terra-cotta;
+$body-bg: lighten($pearl, 10%);
+$header-bg: $deep-purple;
+$site-title: $pearl;
 
 // BUTTONS
 
@@ -31,6 +32,6 @@ $btn-border: $dark-burgundy;
 
 // CARDS
 
-$card-background: $light-gray;
+$card-background: lighten($rusty-orange, 10%);
 $card-border: $darker-teal;
 
