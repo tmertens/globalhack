@@ -1,0 +1,13 @@
+<div class="card ">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+    	<i class="fa fa-user" aria-hidden="true"></i> 
+			<%= @profile.username.try(:titleize) %>
+		</h3>
+		<%= image_tag(@profile.avatar.url, class: 'circular pull-right') %>
+  </div>
+  <div>
+  	<p><strong>Bio:</strong> <%= @profile.bio %></p>
+  </div>
+</div>
+

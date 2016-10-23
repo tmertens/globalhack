@@ -1,6 +1,2 @@
-<div>
-  <p>
-    <strong>Donate To Support <%= @profile.username %>:</strong>
-  </p>
-  <%= render partial: 'braintree_payment', locals: { organizations: (Organization.universal | @client.organizations), client_token: @client_token, digested_token: @digested_token } %>
-</div>
+<%= render partial: 'braintree_payment', locals: { organizations: (Organization.universal | @client.organizations), client_token: @client_token, digested_token: @digested_token } %>
+
