@@ -28,7 +28,7 @@
                     <% if address.street_2.present? %>
                         <%= address.street_2 %><br>
                     <% end %>
-                    <%= address.city + ', ' + address.state + address.zipcode %>
+                    <%= "#{address.city}, #{address.state} #{address.try(:zipcode)}" %>
                   </address>
                 </td>
               </tr>
