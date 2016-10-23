@@ -1,0 +1,6 @@
+<%= form_tag({controller: "pages", action: "find_client_profile"}, method: "get", class: "form-inline") do %>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Username" name="search_params">
+  </div>
+  <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+<% end %>

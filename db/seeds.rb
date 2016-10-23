@@ -6,13 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-jon = Client.first_or_create!(informal_name: 'Jon')
-angelina = Client.first_or_create!(informal_name: 'Angelina')
+jon = Client.find_or_create_by(informal_name: 'Jon')
+angelina = Client.find_or_create_by(informal_name: 'Angelina')
 
-DependentClient.first_or_create!(primary_client_id: jon.id, dependent_client_id: angelina.id)
+DependentClient.find_or_create_by(primary_client_id: jon.id, dependent_client_id: angelina.id)
 
-luke = Client.first_or_create!(informal_name: 'Luke')
-grizzly_bear = User.first_or_create!(email: "grizzled@bear.com", password: "bearbear")
+luke = Client.find_or_create_by(informal_name: 'Luke')
+da_bearz = User.where(email: "grizzled@bear.com")
+already_exists = da_bearz.present?
+grizzly_bear = already_exists ? da_bearz.first : User.create!(email: "grizzled@bear.com", password: "bearbear")
 peter = Organization.create(name: 'Peter and Paul Foundation', owner: grizzly_bear)
 luke.organizations << peter
 
@@ -24,7 +26,12 @@ ClientProfile.create_with(client: luke,
                           bio: "Luke Cage is an ex-convict, who was imprisoned for a crime he did not commit and gained the powers of superhuman strength and unbreakable skin after he was subjected to an involuntary experiment. He's getting back on his feet after his building was blown up by Cottonmouth",
                           require_secret: true,
                           avatar_file_name: '/public/missing.png')
-  .first_or_create!(username: 'powerman')
+  .find_or_create_by(username: 'powerman')
+
+ella = Client.find_or_create_by(informal_name: "Ella")
+stella = Client.find_or_create_by(informal_name: "Stella")
+ClientProfile.find_or_create_by(client: ella, username: "ella", bio: "Ella is a proud mother of three who fell on tough times after suffering a heart attack. She has recovered her health and is currently taking job training.")
+ClientProfile.find_or_create_by(client: stella, username: "stella")
 
 services = ['Housing', 'Job Training', 'Counseling', 'Veteran Services',
             'Legal Assistance']
@@ -58,7 +65,7 @@ user = User.create_with(first_name: 'Jason',
                         last_name: 'Bourne',
                         password: 'Password1!',
                         password_confirmation: 'Password1!')
-         .first_or_create!(email: 'jason.bourne@example.test')
+         .find_or_create_by(email: 'jason.bourne@example.test')
 organization = Organization::Create.call!(name: 'Chippy Chappers',
                                           owner: user)
 location = Organization::CreateFirstLocation.call!(organization: organization,
