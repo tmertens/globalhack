@@ -1,10 +1,10 @@
 .btn.btn-default {
-	background-color: $btn-default-bg;
 }
 
 .btn.btn-primary {
 	background-color: $btn-default-bg;
 	&:hover {
 		background-color: $btn-hover;
+		border: $btn-border 1px;
 	}
 }
