@@ -5,7 +5,6 @@ class PagesController < ApplicationController
   end
 
   def give
-
   end
 
   def find_client_profile
@@ -21,10 +20,6 @@ class PagesController < ApplicationController
   end
 
   private
-
-  def process_search_results
-
-  end
 
   def search_params
     params.permit(:search_params)["search_params"]
