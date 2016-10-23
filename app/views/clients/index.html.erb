@@ -1,0 +1,20 @@
+<table class="table table-striped">
+  <% @clients.each do |client| %>
+      <% person = client.person %>
+    <tr>
+      <td>
+        <dl class="dl-horizontal">
+          <dt>Name</dt>
+          <dd><%= "#{person.first_name} #{person.last_name}" %></dd>
+          <% if person.date_of_birth %>
+          <dt>Date of Birth</dt>
+          <dd><%= "#{person.date_of_birth}" %></dd>
+              <% end %>
+          <dt>gender</dt>
+          <dd><%= "#{person.gender}" %></dd>
+        </dl>
+
+      </td>
+    </tr>
+  <% end %>
+</table>

@@ -1,6 +1,9 @@
 class IntakeFormsController < Admin::BaseController
   before_action :set_intake_form, only: [:show, :edit, :update, :destroy]
-
+before_action :redirect_if_no_org
+def redirect_if_no_org
+  return redirect_to new_admin_organization_path if current_user.needs_organization?
+end
   # GET /intake_forms
   # GET /intake_forms.json
   def index
