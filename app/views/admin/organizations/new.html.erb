@@ -6,7 +6,7 @@
 
 <div class="clearfix"></div>
 
-<form>
+<form action='/admin/organizations' method='post'>
   <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
@@ -21,36 +21,27 @@
                 <a href="#step-1">
                   <span class="step_no">1</span>
                   <span class="step_descr">
-                                                Step 1<br />
-                                                <small>Organization Name</small>
-                                            </span>
+                      Step 1<br />
+                      <small>Organization Name</small>
+                  </span>
                 </a>
               </li>
               <li>
                 <a href="#step-2">
                   <span class="step_no">2</span>
                   <span class="step_descr">
-                                                Step 2<br />
-                                                <small>Address & Contact</small>
-                                            </span>
+                      Step 2<br />
+                      <small>Address & Contact</small>
+                  </span>
                 </a>
               </li>
               <li>
                 <a href="#step-3">
                   <span class="step_no">3</span>
                   <span class="step_descr">
-                                                Step 3<br />
-                                                <small>Services</small>
-                                            </span>
-                </a>
-              </li>
-              <li>
-                <a href="#step-4">
-                  <span class="step_no">4</span>
-                  <span class="step_descr">
-                                                Step 4<br />
-                                                <small>Service Criteria</small>
-                                            </span>
+                      Step 3<br />
+                      <small>Services</small>
+                  </span>
                 </a>
               </li>
             </ul>
@@ -62,7 +53,7 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Organization Name <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12">
+                      <input type="text" id="name" name='name' required="required" class="form-control col-md-7 col-xs-12">
                     </div>
                   </div>
                 </div>
@@ -76,61 +67,56 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="street_1">Street <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="text" id="street_1" name="street_1" required="required" class="form-control col-md-7 col-xs-12">
+                        <input type="text" id="address_street_1" name="address[street_1]" required="required" class="form-control col-md-7 col-xs-12">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="street_2"></span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input id="street_2" class="form-control col-md-7 col-xs-12" type="text" name="street_2">
+                      <input id="address_street_2" name="address[street_2]" class="form-control col-md-7 col-xs-12" type="text" >
                     </div>
                   </div>
 
                   <div class="form-group">
                     <div class="col-md-3 col-sm-3 col-xs-12"></div>
                     <div class="col-md-2 col-sm-2 col-xs-12">
-                      <input id="city" class="form-control col-md-7 col-xs-12" type="text" name="city" placeholder="ex. Los Angeles">
+                      <input id="address_city" name="address[city]" class="form-control col-md-7 col-xs-12" type="text"  placeholder="St. Louis">
                     </div>
                     <div class="col-md-2 col-sm-2 col-xs-12">
                       <select class="select2_single form-control">
                         <option></option>
                         <% Address::STATE_MAP.each do |abbreviation, full| %>
-                            <option value="<%= abbreviation %>"><%= full %></option>
+                            <option name="address[state]" value="<%= abbreviation %>"><%= full %></option>
                         <% end %>
                       </select>
                     </div>
                     <div class="col-md-2 col-sm-2 col-xs-12">
-                      <input id="city" class="form-control col-md-7 col-xs-12" type="text" name="zip" placeholder="ex. 90210">
+                      <input id="address_zipcode" name="address[zipcode]" class="form-control col-md-7 col-xs-12" type="text"  placeholder="63103">
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div id="step-3" style="display: none">
-              <h2 class="StepTitle">Step 3 Content</h2>
-              <p>
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-            </div>
-            <div id="step-4" style="display: none">
-              <h2 class="StepTitle">Step 4 Content</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
+              <h2 class="Service">The Service you provide</h2>
+              <div class="container">
+                <div class="form-horizontal form-label-left">
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="street_1"> <span class="required">*</span>
+                      Type
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <%= select_tag 'service_id', options_from_collection_for_select(services, "id", "name") %>
+                    </div>
+                  </div>
+                  <% top_level_criteria.each_with_index do |criteria, i| %>
+                    <%= render partial: 'shared/criteria', locals: { criteria: criteria, i: i } %>
+                  <% end %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -142,9 +128,12 @@
 <script>
   $(document).ready(function() {
     $('#wizard').smartWizard({
-      hideButtonsOnDisabled: true,
+      hideButtonsOnDisabled: false,
       reverseButtonsOrder: true,
+      reverseButtonOrder: false,
+      transitionEffect: 'fade',
       onFinish: function(objs, context) {
+
         $('form').submit();
       }
     });

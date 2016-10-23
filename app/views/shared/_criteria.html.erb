@@ -1,0 +1,20 @@
+<div class="form-group">
+  <% if criteria.category? %>
+    <div>
+      <div><%= criteria.name %></div>
+      <% criteria.eligibility_criteria.each_with_index do |crit2, i2| %>
+        <div class='form-group'>
+          <%= check_box_tag "eligibility_criteria[#{crit2.id}]" %>
+          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="eligibility_criteria_<%= crit2.id %>">
+            <%= crit2.name %>
+          </label>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <%= check_box_tag "eligibility_criteria[#{criteria.id}]" %>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="eligibility_criteria_<%= criteria.id %>">
+      <%= criteria.name %>
+    </label>
+  <% end  %>
+</div>

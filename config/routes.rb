@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'pages/index'
   root 'pages#index'
 
-  resources :organizations, except: [:destroy]
+  resources :organizations, only: [:index, :show]
 
   get 'profiles/:username' => 'profiles#show'
   resources :profiles, only: [:new]
