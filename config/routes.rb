@@ -7,13 +7,12 @@ Rails.application.routes.draw do
   devise_for :users
   get 'pages/index'
   root 'pages#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :organizations, except: [:destroy]
+  resources :organizations, only: [:index, :show]
 
   # Don't remove this route!!!
   get 'profiles/:username' => 'profiles#show'
-  resources :profiles, only: [:show, :new]
+  resources :profiles, only: [:new]
 
   resources :payments, only: [:create, :show]
 
