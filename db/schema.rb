@@ -150,9 +150,9 @@ ActiveRecord::Schema.define(version: 20161023041357) do
     t.string   "last_name"
     t.date     "date_of_birth"
     t.integer  "gender"
-    t.string   "ssn"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.string   "ssn"
     t.boolean  "substance_abuser"
     t.boolean  "domestic_abuse_victim"
     t.boolean  "prior_violence"
