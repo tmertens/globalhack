@@ -10,6 +10,15 @@ class ClientProfile < ApplicationRecord
   # TODO: this is not prod safe yet, anyone can upload whatever they want
   do_not_validate_attachment_file_type :avatar
 
+  def self.find_by_username(name)
+    return exact_match(name) if exact_match(name).present?
+    where("client_profiles.username ILIKE ?", "%#{name}%")
+  end
+
+  def self.exact_match(name)
+    where(username: name)
+  end
+
   def secret_not_required?
     !require_secret?
   end
