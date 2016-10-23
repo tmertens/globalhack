@@ -11,6 +11,7 @@ class ClientProfile < ApplicationRecord
   do_not_validate_attachment_file_type :avatar
 
   def self.find_by_username(name)
+    return unless name.present?
     return exact_match(name) if exact_match(name).present?
     where("client_profiles.username ILIKE ?", "%#{name}%")
   end
