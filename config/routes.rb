@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :organizations, except: [:destroy]
   resources :profiles, only: [:show, :new]
 
+  resources :payments, only: [:create, :show]
+
   namespace :admin do
     get '/' => 'dashboard#index'
 
@@ -22,6 +24,8 @@ Rails.application.routes.draw do
     resources :organizations
     resources :client_profiles
   end
+
+  get 'map' => 'maps#show'
 
   # Grape API routes will be mounted under the `api` namespace
   mount ::HousingFirst::Api::Base => '/'

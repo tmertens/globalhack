@@ -57,6 +57,7 @@ class Address < ApplicationRecord
   STATES = STATE_MAP.keys
 
   geocoded_by :geocodable_address
+  after_validation :geocode
 
   def geocodable_address
     geocodable_attributes = [street_1, street_2, city, state, zipcode].compact
