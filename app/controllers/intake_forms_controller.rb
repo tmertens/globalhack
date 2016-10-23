@@ -24,12 +24,10 @@ class IntakeFormsController < ApplicationController
   # POST /intake_forms
   # POST /intake_forms.json
   def create
-    @client = Client.new(client_params)
-    @person = Person.new(person_params.merge(client: @client))
-    @intake_form = IntakeForm.new(intake_form_params.merge(client: @client))
+    @intake_form = IntakeForm.new(intake_form_params)
 
     respond_to do |format|
-      if @intake_form.save && @client.save && @person.save
+      if @intake_form.save
         number_of_dependents.times { @client.dependents.create! }
         format.html { redirect_to @intake_form, notice: 'Intake form was successfully created.' }
         format.json { render :show, status: :created, location: @intake_form }
@@ -43,9 +41,6 @@ class IntakeFormsController < ApplicationController
   # PATCH/PUT /intake_forms/1
   # PATCH/PUT /intake_forms/1.json
   def update
-    @client = Client.update(client_params)
-    @person = Person.update(person_params.merge(client: @client))
-
     respond_to do |format|
       if @intake_form.update(intake_form_params)
         format.html { redirect_to @intake_form, notice: 'Intake form was successfully updated.' }
@@ -75,18 +70,17 @@ class IntakeFormsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def intake_form_params
-      params.require(:intake_form).permit(:vispdat_score, :substance_abuse, :utility_debt, :mental_illness)
-    end
-
-    def person_params
-      params.require(:person).permit(:first_name, :last_name, :date_of_birth, :gender, :ssn)
-    end
-
-    def client_params
-      params.require(:client).permit(:informal_name)
+      params.require(:intake_form).permit(
+        :vispdat_score,
+        :substance_abuse,
+        :utility_debt,
+        :mental_illness,
+        client_attributes: [:informal_name],
+        person_attributes: [:first_name, :last_name, :date_of_birth, :gender, :ssn]
+      )
     end
 
     def number_of_dependents
-      params[:person][:number_of_dependents].try(:to_i)
+      params[:number_of_dependents].to_i
     end
 end

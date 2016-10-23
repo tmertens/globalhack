@@ -11,40 +11,45 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= label_tag :client_informal_name, 'Informal name' %>
-    <%= text_field_tag 'client[informal_name]' %>
-  </div>
+  <%= f.fields_for :client do |cf| %>
+    <div>
+      <%= cf.label :informal_name %>
+      <%= cf.text_field :informal_name %>
+    </div>
+  <% end %>
 
-  <div class="field">
-    <%= label_tag :person_first_name, 'First name' %>
-    <%= text_field_tag 'person[first_name]' %>
-  </div>
+  <%= f.fields_for :person do |pf| %>
+    <div class="field">
+      <%= pf.label :first_name %>
+      <%= pf.text_field :first_name %>
+    </div>
 
-  <div class="field">
-    <%= label_tag :person_last_name, 'Last name' %>
-    <%= text_field_tag 'person[last_name]' %>
-  </div>
+    <div class="field">
+      <%= pf.label :last_name %>
+      <%= pf.text_field :last_name %>
+    </div>
 
-  <div class="field">
-    <%= label_tag :person_date_of_birth, 'Date of birth' %>
-    <%= date_field_tag 'person[date_of_birth]' %>
-  </div>
+    <div class="field">
+      <%= pf.label :date_of_birth %>
+      <%= pf.date_field :date_of_birth %>
+    </div>
 
-  <div class="field">
-    <%= label_tag :person_gender, 'Gender' %>
-    <%= select_tag 'person[gender]', options_for_select(Person.humanized_genders) %>
-  </div>
+    <div class="field">
+      <%= pf.label :gender %>
+      <%= pf.select :gender, Person.genders.keys %>
+    </div>
 
-  <div class="field">
-    <%= label_tag :person_ssn, 'SSN' %>
-    <%= text_field_tag 'person[ssn]' %>
-  </div>
+    <div class="field">
+      <%= pf.label :ssn %>
+      <%= pf.text_field :ssn %>
+    </div>
 
-  <div class="field">
-    <%= label_tag :person_number_of_dependents, 'Number of dependents' %>
-    <%= number_field_tag 'person[number_of_dependents]' %>
-  </div>
+    <div class="field">
+      <%= label_tag :number_of_dependents, 'Number of dependents' %>
+      <%= number_field_tag 'number_of_dependents' %>
+    </div>
+  <% end %>
+
 
   <div class="field">
     <%= f.label :utility_debt %>
