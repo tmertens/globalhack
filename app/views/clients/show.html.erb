@@ -1,4 +1,11 @@
-<%= @client.informal_name %>
-<%= image_tag @client.client_profile.avatar.url, :size => '300x300' %>
+<div class="">
+  <div class="field form-group">
+    <h2><%= "Welcome #{@client.informal_name}!" %></h2>
+  </div>
 
-<%= render partial: 'form', locals: { client: @client } %>
+  <div class="field form-group">
+    <%= image_tag @client.client_profile.avatar.url, :size => '300x300' %>
+  </div>
+
+  <%= render partial: 'form', locals: { client: @client } %>
+</div>

@@ -1,7 +1,17 @@
-<%= form_for @client, html: { multipart: true } do |f| %>
-  <%= f.label 'Username' %>
-  <%= f.text_field :informal_name %>
-  <%= f.label 'Picture' %>
-  <%= f.file_field :avatar %>
-  <%= f.submit 'Update Profile'%>
+<%= form_for @client, html: { multipart: true, class: 'form-horizontal' } do |f| %>
+  <div class="field form-group">
+    <div class="col-sm-10">
+      <%= f.text_field :informal_name, placeholder: 'Change Username' %>
+    </div>
+  </div>
+
+  <div class="btn btn-default">
+    <div class="col-sm-10">
+      <%= f.file_field :avatar %>
+    </div>
+  </div>
+
+  <div class="btn btn-default">
+      <%= f.submit 'Update Profile'%>
+  </div>
 <% end %>
