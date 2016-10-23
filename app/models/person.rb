@@ -5,5 +5,12 @@ class Person < ApplicationRecord
     other:  2
   }
 
+  def self.humanized_genders
+    genders.keys.map do |gender|
+      [gender.humanize, gender]
+    end
+  end
+  
+
   belongs_to :client
 end

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Intake Forms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Vispdat score</th>
+      <th>Substance abuse</th>
+      <th>Utility debt</th>
+      <th>Mental illness</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @intake_forms.each do |intake_form| %>
+      <tr>
+        <td><%= intake_form.vispdat_score %></td>
+        <td><%= intake_form.substance_abuse %></td>
+        <td><%= intake_form.utility_debt %></td>
+        <td><%= intake_form.mental_illness %></td>
+        <td><%= link_to 'Show', intake_form %></td>
+        <td><%= link_to 'Edit', edit_intake_form_path(intake_form) %></td>
+        <td><%= link_to 'Destroy', intake_form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Intake Form', new_intake_form_path %>

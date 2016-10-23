@@ -1,0 +1,77 @@
+<%= form_for(intake_form) do |f| %>
+  <% if intake_form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(intake_form.errors.count, "error") %> prohibited this intake_form from being saved:</h2>
+
+      <ul>
+      <% intake_form.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :client do |cf| %>
+    <div>
+      <%= cf.label :informal_name %>
+      <%= cf.text_field :informal_name %>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :person do |pf| %>
+    <div class="field">
+      <%= pf.label :first_name %>
+      <%= pf.text_field :first_name %>
+    </div>
+
+    <div class="field">
+      <%= pf.label :last_name %>
+      <%= pf.text_field :last_name %>
+    </div>
+
+    <div class="field">
+      <%= pf.label :date_of_birth %>
+      <%= pf.date_field :date_of_birth %>
+    </div>
+
+    <div class="field">
+      <%= pf.label :gender %>
+      <%= pf.select :gender, Person.genders.keys %>
+    </div>
+
+    <div class="field">
+      <%= pf.label :ssn %>
+      <%= pf.text_field :ssn %>
+    </div>
+
+    <div class="field">
+      <%= label_tag :number_of_dependents, 'Number of dependents' %>
+      <%= number_field_tag 'number_of_dependents' %>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :utility_debt %>
+    <%= f.check_box :utility_debt %>
+  </div>
+
+  <div class="field">
+    <%= f.label :substance_abuse %>
+    <%= f.check_box :substance_abuse %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mental_illness %>
+    <%= f.check_box :mental_illness %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vispdat_score %>
+    <%= f.number_field :vispdat_score %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

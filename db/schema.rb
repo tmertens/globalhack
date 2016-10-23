@@ -85,6 +85,17 @@ ActiveRecord::Schema.define(version: 20161022211512) do
     t.index ["location_id"], name: "index_housing_units_on_location_id", using: :btree
   end
 
+  create_table "intake_forms", force: :cascade do |t|
+    t.integer  "vispdat_score"
+    t.boolean  "substance_abuse"
+    t.boolean  "utility_debt"
+    t.boolean  "mental_illness"
+    t.integer  "client_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["client_id"], name: "index_intake_forms_on_client_id", using: :btree
+  end
+
   create_table "locations", force: :cascade do |t|
     t.integer  "organization_id"
     t.datetime "created_at",      null: false
@@ -138,9 +149,9 @@ ActiveRecord::Schema.define(version: 20161022211512) do
     t.string   "last_name"
     t.date     "date_of_birth"
     t.integer  "gender"
+    t.string   "ssn"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
-    t.string   "ssn"
     t.boolean  "substance_abuser"
     t.boolean  "domestic_abuse_victim"
     t.boolean  "prior_violence"
@@ -200,6 +211,7 @@ ActiveRecord::Schema.define(version: 20161022211512) do
   add_foreign_key "clients_organizations", "clients"
   add_foreign_key "clients_organizations", "organizations"
   add_foreign_key "housing_units", "locations"
+  add_foreign_key "intake_forms", "clients"
   add_foreign_key "locations", "organizations"
   add_foreign_key "offering_eligibility_criteria", "eligibility_criteria", column: "eligibility_criteria_id"
   add_foreign_key "offering_eligibility_criteria", "service_offerings"

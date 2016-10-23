@@ -2,6 +2,7 @@ require 'housing_first/api/base'
 
 Rails.application.routes.draw do
 
+  resources :intake_forms
   devise_for :users
   get 'pages/index'
   root 'pages#index'
