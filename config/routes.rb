@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     resources :client_profiles
   end
 
+  get 'map' => 'maps#show'
+
   # Grape API routes will be mounted under the `api` namespace
   mount ::HousingFirst::Api::Base => '/'
 
