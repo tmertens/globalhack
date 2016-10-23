@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   root 'pages#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :profiles, only: [:show, :new]
+  get 'profiles/:username' => 'profiles#show'
+  resources :profiles, only: [:new]
+
+
+  resources :payments, only: [:create, :show]
 
   namespace :admin do
     get '/' => 'dashboard#index'
@@ -19,6 +23,8 @@ Rails.application.routes.draw do
     resources :organizations
     resources :client_profiles
   end
+
+  get 'map' => 'maps#show'
 
   # Grape API routes will be mounted under the `api` namespace
   mount ::HousingFirst::Api::Base => '/'

@@ -7,6 +7,7 @@ class Address < ApplicationRecord
               OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY)
 
   geocoded_by :geocodable_address
+  after_validation :geocode
 
   def geocodable_address
     geocodable_attributes = [street_1, street_2, city, state, zipcode].compact

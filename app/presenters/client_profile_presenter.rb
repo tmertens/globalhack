@@ -25,11 +25,16 @@ class ClientProfilePresenter
   attr_reader :profile, :provided_text_secret
 
   def correct_secret_provided?
-    hashed_provided_secret == profile.hashed_public_secret
+    magic_phrase && (hashed_provided_secret == magic_phrase.hashed_phrase)
+  end
+
+  def magic_phrase
+    defined?(:@magic_phrase) or @magic_phrase = profile.client.try(:magic_phrase)
+    @magic_phrase
   end
 
   def hashed_provided_secret
-    @hashed_provided_secret ||= ClientProfile.digest provided_text_secret
+    @hashed_provided_secret ||= MagicPhrase.digest provided_text_secret
   end
 
 end

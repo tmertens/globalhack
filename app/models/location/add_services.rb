@@ -5,7 +5,7 @@ class Location < ApplicationRecord
     input :location, :service_ids
 
     def call
-      service_ids.each do |service_id|
+      service_ids.map do |service_id|
         ServiceOffering.create! do |offering|
           offering.service_id = service_id
           offering.location = location
