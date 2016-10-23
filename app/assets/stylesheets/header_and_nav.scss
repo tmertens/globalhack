@@ -1,9 +1,12 @@
-header {
-	margin-bottom: 2em;
-	background-color: $light-teal;
-	border-bottom: $dark-teal 1px;
-}
+.ghbase {
+  header {
+    margin-bottom: 2em;
+    padding-top: 1em;
+    background-color: $header-bg;
+  }
 
-.navbar-brand {
-	font-size: 2.5em;
+  .navbar-brand {
+    font-size: 2.5em;
+    color: $dark-burgundy;
+  }
 }

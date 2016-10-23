@@ -1,3 +1,5 @@
+// COLOR LIBRARY
+
 $light-teal: #D7F9F1;
 $dark-teal: #4EA699;
 $dark-sea-green: #8ACB88;
@@ -5,13 +7,30 @@ $rust: #C57B57;
 
 $darker-teal: #326273;
 
-
 $light-gray: #EEEEEE;
 $white: #fff;
 $rusty-orange: #E39774;
 
+$dark-burgundy: #31081F;
+$bright-teal: #46B1C9;
+$terra-cotta: #ED6A5A;
+$pearl: #EDD8C7;
+$deep-purple: #590E38;
 
-// $body-bg: $white;
-$brand-primary: $darker-teal;
-$header-bg: $dark-sea-green;
-$accent: $rusty-orange;
+// LAYOUT
+
+$body-bg: $pearl;
+$header-bg: $terra-cotta;
+
+// BUTTONS
+
+$btn-primary-bg: $deep-purple;
+$btn-default-bg: $deep-purple;
+$btn-hover: $terra-cotta;
+$btn-border: $dark-burgundy;
+
+// CARDS
+
+$card-background: $light-gray;
+$card-border: $darker-teal;
+
