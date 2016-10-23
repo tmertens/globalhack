@@ -1,4 +1,5 @@
 <%= @client.informal_name %>
-<%= image_tag(@client.client_profile.avatar.url(:thumb), :size => '100x100') %>
+<%= console %>
+<%= image_tag(@client.client_profile.avatar.url, :size => '100x100') %>
 
 <%= render partial: 'form', locals: { client: @client } %>

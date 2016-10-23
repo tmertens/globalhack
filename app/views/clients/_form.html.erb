@@ -1,4 +1,6 @@
 <%= form_for @client, html: { multipart: true } do |f| %>
+  <%= f.label 'Username' %>
+  <%= f.text_field :informal_name %>
   <%= f.label 'Picture' %>
   <%= f.file_field :avatar %>
   <%= f.submit 'Update Profile'%>

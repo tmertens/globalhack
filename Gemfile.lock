@@ -47,6 +47,9 @@ GEM
       aws-sdk-resources (= 2.3.22)
     aws-sdk-core (2.3.22)
       jmespath (~> 1.0)
+    aws-sdk-rails (1.0.1)
+      aws-sdk-resources (~> 2)
+      railties (>= 3)
     aws-sdk-resources (2.3.22)
       aws-sdk-core (= 2.3.22)
     axiom-types (0.1.1)
@@ -285,6 +288,7 @@ PLATFORMS
 DEPENDENCIES
   annotate_models
   aws-sdk (~> 2.3.0)
+  aws-sdk-rails
   bootstrap (~> 4.0.0.alpha4)
   braintree (~> 2.68.1)
   byebug
