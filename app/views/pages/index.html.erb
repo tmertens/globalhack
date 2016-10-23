@@ -1,28 +1,43 @@
-<div class="jumbotron">
+<style>
+  .card-block { margin-bottom:15px;}
+</style>
+
+<div class="jumbotron" style="background: url(arch_4.jpg);background-size: cover">
   <h1>Join the continuum of care</h1>
   <p>Help end homelessness in your community.</p>
 </div>
 
-<div class="row">
+
+
+<div class="row" style="margin-bottom:10px;">
   <div class="col-sm-4">
-    <div class="card card-block">
+    <div class="card card-block" style="min-height: 240px;">
       <h3 class="card-title">Help a Neighbor</h3>
-      <p class="card-text">Find out how you can support your neighbors in need of stable housing.</p>
+      <p class="card-text text-justify">Find out how you can support your neighbors in need of stable housing.</p>
       <a href="#" class="btn btn-primary">Learn More</a>
     </div>
+    <div class="card card-block-transparent" style="background: url(picket-fences-349713_2.jpg);background-size: cover"></div>
+    <div class="card card-block-transparent-bg"></div>
   </div>
   <div class="col-sm-4">
-    <div class="card card-block">
-      <h3 class="card-title">Get Help</h3>
-      <p class="card-text">If you or someone you know may need housing assistance, search for assistance from nearby organizations.</p>
-      <a href="#" class="btn btn-primary">Find Support</a>
-    </div>
-  </div>
-    <div class="col-sm-4">
-      <div class="card card-block">
-        <h3 class="card-title">Help your Organization</h3>
-        <p class="card-text">Housing First streamlines intake and communication between Continuum of Care service providers. Sign up to add your organization and manage client intake and placement.</p>
-        <p><%= link_to 'Get Started', new_user_registration_path, class: "btn btn-primary" %></p>
+    <div class="card card-block" style="min-height: 240px;">
+      <div style="color: #000000;">
+        <h3 class="card-title">Get Help</h3>
+        <p class="card-text text-justify">If you or someone you know may need housing assistance, search for assistance from nearby organizations.</p>
+        <a href="#" class="btn btn-primary">Find Support</a>
       </div>
     </div>
+    <div class="card card-block-transparent" style="background: url(hands-63743_2.png);background-size: cover"></div>
+    <div class="card card-block-transparent-bg"></div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card card-block" style="min-height: 240px;">
+      <h3 class="card-title">Help your Organization</h3>
+      <p class="card-text text-justify">Housing First streamlines intake and communication between Continuum of Care service providers. Sign up to add your organization and manage client intake and placement.</p>
+      <p><%= link_to 'Get Started', new_user_registration_path, class: "btn btn-primary" %></p>
+    </div>
+    <div class="card card-block-transparent" style="background: url(skyline-600001_640.jpg);background-size: cover"></div>
+    <div class="card card-block-transparent-bg"></div>
+  </div>
 </div>
+

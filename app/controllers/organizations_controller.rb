@@ -7,6 +7,7 @@ class OrganizationsController < ApplicationController
   end
 
   def show
+    redirect_to 'dashboard#index'
   end
 
   def new

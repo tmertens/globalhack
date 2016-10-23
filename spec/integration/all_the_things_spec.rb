@@ -28,7 +28,7 @@ describe 'Creating a new organization' do
                                                        phone:    '123-456-1122',
                                                        email:    'chaps.chippers@example.test')
 
-    location = organization.locations.first
+    location = organization.location
     address = location.address
     expect(address.street_1).to eq '1 S Compton Ave'
     expect(address.city).to eq     'St Louis'
