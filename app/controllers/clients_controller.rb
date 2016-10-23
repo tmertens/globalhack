@@ -22,7 +22,11 @@ class ClientsController < ApplicationController
     @client = Client.find_by(id: params['id'])
     @client.informal_name = params['client']['informal_name']
 
-    if @client.client_profile.update_attributes(avatar: params['client']['avatar']) && @client.save
+    unless params['client']['avatar'].nil?
+      @client.client_profile.update_attributes(avatar: params['client']['avatar'])
+    end
+
+    if @client.save
       redirect_to @client
     else
       render 'edit'
