@@ -271,12 +271,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
-=======
   annotate_models
-  bootstrap (~> 4.0.0.alpha4)
   braintree (~> 2.68.1)
->>>>>>> origin/master
   byebug
   capybara
   coffee-rails (~> 4.2)
