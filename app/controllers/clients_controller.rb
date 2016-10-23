@@ -21,10 +21,12 @@ class ClientsController < ApplicationController
   def update
     @client = Client.find_by(id: params['id'])
     @client.informal_name = params['client']['informal_name']
+    @client.client_profile.bio = params['client']['client_profile_attributes']['bio']
 
     unless params['client']['avatar'].nil?
       @client.client_profile.update_attributes(avatar: params['client']['avatar'])
     end
+
 
     if @client.save
       redirect_to @client
