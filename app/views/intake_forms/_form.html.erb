@@ -11,45 +11,44 @@
     </div>
   <% end %>
 
-  <%= f.fields_for :client do |cf| %>
+  <%= f.fields_for :client, Client.new do |cf| %>
     <div>
       <%= cf.label :informal_name %>
       <%= cf.text_field :informal_name %>
     </div>
+
+    <%= cf.fields_for :person, Person.new do |pf| %>
+      <div class="field">
+        <%= pf.label :first_name %>
+        <%= pf.text_field :first_name %>
+      </div>
+
+      <div class="field">
+        <%= pf.label :last_name %>
+        <%= pf.text_field :last_name %>
+      </div>
+
+      <div class="field">
+        <%= pf.label :date_of_birth %>
+        <%= pf.date_field :date_of_birth %>
+      </div>
+
+      <div class="field">
+        <%= pf.label :gender %>
+        <%= pf.select :gender, Person.genders.keys %>
+      </div>
+
+      <div class="field">
+        <%= pf.label :ssn %>
+        <%= pf.text_field :ssn %>
+      </div>
+
+      <div class="field">
+        <%= label_tag :number_of_dependents, 'Number of dependents' %>
+        <%= number_field_tag 'number_of_dependents' %>
+      </div>
+    <% end %>
   <% end %>
-
-  <%= f.fields_for :person do |pf| %>
-    <div class="field">
-      <%= pf.label :first_name %>
-      <%= pf.text_field :first_name %>
-    </div>
-
-    <div class="field">
-      <%= pf.label :last_name %>
-      <%= pf.text_field :last_name %>
-    </div>
-
-    <div class="field">
-      <%= pf.label :date_of_birth %>
-      <%= pf.date_field :date_of_birth %>
-    </div>
-
-    <div class="field">
-      <%= pf.label :gender %>
-      <%= pf.select :gender, Person.genders.keys %>
-    </div>
-
-    <div class="field">
-      <%= pf.label :ssn %>
-      <%= pf.text_field :ssn %>
-    </div>
-
-    <div class="field">
-      <%= label_tag :number_of_dependents, 'Number of dependents' %>
-      <%= number_field_tag 'number_of_dependents' %>
-    </div>
-  <% end %>
-
 
   <div class="field">
     <%= f.label :utility_debt %>
