@@ -8,7 +8,7 @@
     <div class="card card-block">
       <h3 class="card-title">Help a Neighbor</h3>
       <p class="card-text">Find out how you can support your neighbors in need of stable housing.</p>
-      <a href="#" class="btn btn-primary">Learn More</a>
+      <p><%= link_to 'Learn More', give_path, class: "btn btn-primary" %></p>
     </div>
   </div>
   <div class="col-sm-4">
@@ -18,11 +18,11 @@
       <a href="#" class="btn btn-primary">Find Support</a>
     </div>
   </div>
-    <div class="col-sm-4">
-      <div class="card card-block">
-        <h3 class="card-title">Help your Organization</h3>
-        <p class="card-text">Housing First streamlines intake and communication between Continuum of Care service providers. Sign up to add your organization and manage client intake and placement.</p>
-        <p><%= link_to 'Get Started', new_user_registration_path, class: "btn btn-primary" %></p>
-      </div>
+  <div class="col-sm-4">
+    <div class="card card-block">
+      <h3 class="card-title">Help your Organization</h3>
+      <p class="card-text">Housing First streamlines intake and communication between Continuum of Care service providers. Sign up to add your organization and manage client intake and placement.</p>
+      <p><%= link_to 'Get Started', new_user_registration_path, class: "btn btn-primary" %></p>
     </div>
+  </div>
 </div>

@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card card-block">
+      <h3 class="card-title">Know your neighbor's username?</h3>
+      <p class="card-text">Give directly on their behalf.</p>
+      <%= render 'user_name_search' %>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card card-block">
+      <h3 class="card-title">Don't have a username?</h3>
+      <p class="card-text">Sign your neighbor up for a client profile or give to a prevention fund.</p>
+      <a href="#" class="btn btn-primary">Give</a>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card card-block">
+      <h3 class="card-title">Find Volunteering Opportunities</h3>
+      <p class="card-text">Search opportunities for volunteering in your community.</p>
+      <p><%= link_to 'Volunteer', "https://www.volunteermatch.org/search/index.jsp?r=msa&l=63627#", class: "btn btn-primary" %></p>
+    </div>
+  </div>
+</div>

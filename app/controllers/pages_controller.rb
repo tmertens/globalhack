@@ -4,6 +4,10 @@ class PagesController < ApplicationController
     redirect_to appropriate_path if user_signed_in?
   end
 
+  def give
+
+  end
+
   private
 
   def appropriate_path
