@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :organizations, except: [:destroy]
+
+  # Don't remove this route!!!
+  get 'profiles/:username' => 'profiles#show'
   resources :profiles, only: [:show, :new]
 
   resources :payments, only: [:create, :show]
