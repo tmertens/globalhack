@@ -17,8 +17,7 @@ class OrganizationsController < ApplicationController
   end
 
   def create
-    name = params.require(:organization).permit(:name)
-    Organization::Create.call!(name: name, owner: current_user)
+    Organization::Create.call!(name: org_name, owner: current_user)
     redirect_to admin_path
   end
 
@@ -27,12 +26,14 @@ class OrganizationsController < ApplicationController
 
   def destroy
     @organization.destroy
-    respond_to do |format|
-      format.json { head :no_content }
-    end
+    redirect_to organizations_path
   end
 
   private
+
+  def org_name
+    params.require(:organization).permit(:name)['name']
+  end
 
   def set_organization
     @organization = Organization.find(params[:id])

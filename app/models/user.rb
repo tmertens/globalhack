@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   has_one :organization, foreign_key: 'owner_id'
 
+  def needs_organization?
+    !organization
+  end
+
 end
