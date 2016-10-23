@@ -18,7 +18,6 @@ luke.organizations << peter
 MagicPhrase.create!(client_uuid: luke.uuid) do |phrase|
   phrase.plain_magic_phrase = 'correct horse battery staple'
 end
-<<<<<<< a5a165572faeb469ba3441a447e540c6bfb1b828
 
 ClientProfile.create_with(client: luke,
                           bio: "Luke Cage is an ex-convict, who was imprisoned for a crime he did not commit and gained the powers of superhuman strength and unbreakable skin after he was subjected to an involuntary experiment. He's getting back on his feet after his building was blown up by Cottonmouth",
