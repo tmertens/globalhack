@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>OnCourse</title>
-    <%= render partial: 'layouts/common_header' %>
-  </head>
+<head>
+  <title>OnCourse</title>
+  <%= render partial: 'layouts/common_header' %>
+</head>
 
-  <body class="ghbase <%= controller_name + ' ' + action_name %>">
-    <header>
-      <%= render 'layouts/nav_bar'%>
-    </header>
-    <div class="container">
-      <%= render 'layouts/alert_notices' %>
-      <%= yield %>
-    </div>
-  </body>
+<body class="ghbase <%= controller_name + ' ' + action_name %>">
+  <header>
+    <%= render 'layouts/nav_bar'%>
+  </header>
+  <div class="container">
+    <%= render 'layouts/alert_notices' %>
+    <%= yield %>
+  </div>
+</body>
 </html>
