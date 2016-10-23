@@ -28,7 +28,7 @@ class IntakeFormsController < ApplicationController
 
     respond_to do |format|
       if @intake_form.save
-        number_of_dependents.times { @client.dependents.create! }
+        number_of_dependents.times { @intake_form.client.dependents.create! }
         format.html { redirect_to @intake_form, notice: 'Intake form was successfully created.' }
         format.json { render :show, status: :created, location: @intake_form }
       else
@@ -75,8 +75,10 @@ class IntakeFormsController < ApplicationController
         :substance_abuse,
         :utility_debt,
         :mental_illness,
-        client_attributes: [:informal_name],
-        person_attributes: [:first_name, :last_name, :date_of_birth, :gender, :ssn]
+        client_attributes: [
+          :informal_name,
+          person_attributes: [:first_name, :last_name, :date_of_birth, :gender, :ssn]
+        ]
       )
     end
 
