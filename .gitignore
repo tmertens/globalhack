@@ -1,5 +1,6 @@
 *.gem
 *.rbc
+.byebug_history
 log/*.log
 /node_modules
 /.idea
