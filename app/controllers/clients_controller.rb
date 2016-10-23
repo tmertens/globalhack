@@ -20,12 +20,14 @@ class ClientsController < ApplicationController
 
   def update
     @client = Client.find_by(id: params['id'])
+    @client.informal_name = params['client']['informal_name']
 
-    # This does not work correctly
-    # here is an issue on this: https://github.com/thoughtbot/paperclip/issues/2151
+    # this is beating me...
+    # the only other idea I have right now is to try to move this to its own controller
+    # ClientProfilesController. The reason I say that is because I don't know what else to try
+    # and the examples of this are very simple. This should be simple. Crap.
 
-
-    if @client.client_profile.update_attributes(params['client'].permit)
+    if @client.client_profile.update_attributes(avatar: params['client']['avatar']) && @client.save
       redirect_to @client
     else
       render 'edit'
