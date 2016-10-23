@@ -1,4 +1,4 @@
-class IntakeFormsController < ApplicationController
+class IntakeFormsController < Admin::BaseController
   before_action :set_intake_form, only: [:show, :edit, :update, :destroy]
 
   # GET /intake_forms
