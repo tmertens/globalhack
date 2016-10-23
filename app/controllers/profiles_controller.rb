@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
     params.require(:username)
     params[:secret] ||= ''
     if client_profile
-      @profile      = ClientProfilePresenter.new(client_profile, Normalize.call(params[:secret]))
+      @profile      = client_profile
       @client       = client_profile.client
       @client_token = OurBraintree::GenerateClientToken.call
       possible_payment = PossiblePayment.create!(

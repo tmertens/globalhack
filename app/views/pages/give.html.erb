@@ -7,9 +7,10 @@
       <% if @profile_path.present? %>
         <%= link_to "#{@client_profiles.first.username}", @profile_path %>
       <% elsif @client_profiles.present? %>
+        <p>Couldn't find that exact person, but maybe one of the below is who you're looking for.</p>
         <ul>
           <%= @client_profiles.each do |c| %>
-            <li><%= c.username %></li>
+            <li><%= link_to "profiles/#{c.username}", "#{c.username}" %></li>
           <% end %>
         </ul>
       <% end %>

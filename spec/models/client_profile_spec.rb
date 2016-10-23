@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ClientProfile, type: :model do
+  it { is_expected.to belong_to(:client) }
+
   describe '.find_by_username' do
     let!(:client_1) { Client.create! }
     let!(:client_2) { Client.create! }
