@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   devise_for :users
   get 'pages/index'
   root 'pages#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :organizations, except: [:destroy]
-  resources :profiles, only: [:show, :new]
+
+  get 'profiles/:username' => 'profiles#show'
+  resources :profiles, only: [:new]
 
   resources :payments, only: [:create, :show]
 

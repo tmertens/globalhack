@@ -8,6 +8,9 @@ module Admin
     def new
     end
 
+    def show
+    end
+
     private
 
     def load_user
