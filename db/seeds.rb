@@ -12,6 +12,7 @@ angelina = Client.create!(informal_name: 'Angelina')
 DependentClient.create!(primary_client_id: jon.id, dependent_client_id: angelina.id)
 
 luke = Client.create!(informal_name: 'Luke')
+grizzly_bear = User.create!(email: "grizzled@bear.com", password: "bearbear")
 peter = Organization.create(name: 'Peter and Paul Foundation')
 luke.organizations << peter
 
