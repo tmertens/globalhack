@@ -21,7 +21,7 @@ module Admin
           service_offering.eligibility_criteria << EligibilityCriteria.find(criteria_id) if value
         end
       end
-      redirect_to 'admin/'
+      redirect_to '/admin'
     end
 
     def show

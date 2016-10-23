@@ -146,12 +146,15 @@ ActiveRecord::Schema.define(version: 20161023061854) do
   create_table "payments", force: :cascade do |t|
     t.integer  "client_id"
     t.integer  "organization_id"
-    t.date     "eff_date"
-    t.integer  "amount_cents"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["client_id"], name: "index_payments_on_client_id", using: :btree
-    t.index ["organization_id"], name: "index_payments_on_organization_id", using: :btree
+    t.integer  "possible_payment_id"
+    t.string   "clearing_house",      null: false
+    t.string   "transaction_id",      null: false
+    t.date     "eff_date",            null: false
+    t.integer  "amount_cents",        null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["clearing_house"], name: "index_payments_on_clearing_house", using: :btree
+    t.index ["eff_date"], name: "index_payments_on_eff_date", using: :btree
   end
 
   create_table "people", force: :cascade do |t|
@@ -227,8 +230,6 @@ ActiveRecord::Schema.define(version: 20161023061854) do
   add_foreign_key "offering_eligibility_criteria", "eligibility_criteria", column: "eligibility_criteria_id"
   add_foreign_key "offering_eligibility_criteria", "service_offerings"
   add_foreign_key "organizations", "users", column: "owner_id"
-  add_foreign_key "payments", "clients"
-  add_foreign_key "payments", "organizations"
   add_foreign_key "people", "clients"
   add_foreign_key "service_offerings", "locations"
   add_foreign_key "service_offerings", "services"
