@@ -3,6 +3,7 @@ module Admin
     before_action :load_user
 
     def index
+      @organization = current_user.organization
     end
 
     private

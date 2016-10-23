@@ -5,6 +5,7 @@ class Client < ApplicationRecord
   accepts_nested_attributes_for :person
 
   has_one :client_profile
+  accepts_nested_attributes_for :client_profile
 
   has_many :as_dependent_dependent_clients, class_name: 'DependentClient',
     primary_key: :id, foreign_key: :primary_client_id

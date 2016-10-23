@@ -1,1 +1,25 @@
+<% if @organization %>
+  <div>
+    <%= @organization.name %>
+  </div>
 
+  <div>
+    serving <%= @organization.clients.count %> people in need
+  </div>
+
+  <div>
+    <% @organization.location.try(:service_offerings).each do |service| %>
+      <%= render partial: 'organizations/service', locals: { service: service } %>
+    <% end %>
+  </div>
+
+  <div>
+    <p>Snazzy Dashboard Visualizations Would Go Here</p>
+  </div>
+
+<% else %>
+  <div>
+    Get Started and <%= link_to "set up your organization", admin_new_organizations_path %>
+  </div>
+
+<% end %>
