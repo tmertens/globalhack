@@ -1,39 +1,100 @@
-<%= form_for(help) do |f| %>
-  <% if help.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(help.errors.count, "error") %> prohibited this help from being saved:</h2>
+<form class="form-horizontal" action="/helps/matching_service_providers" method="get">
+  <input type="hidden" name="help_type", value="<%= @help_type %>" />
 
-      <ul>
-      <% help.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>Do you need a place to sleep tonight?</h3>
     </div>
-  <% end %>
-
-  <%= f.hidden_field :help_type, value: params[:help_type] %>
-
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+    <div class="panel-body">
+      <div class="form-group">
+        <div class="text-center col-md-12 col-sm-12 col-xs-12">
+          <div id="need_housing" class="btn-group" data-toggle="buttons">
+            <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+              <input type="radio" name="need_housing" value="yes"> &nbsp; Yes
+            </label>
+            <label class="btn btn-info" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+              <input type="radio" name="need_housing" value="no"> &nbsp; No
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>What is your gender?</h3>
+    </div>
+    <div class="panel-body">
+      <div class="form-group">
+        <div class="text-center col-md-12 col-sm-12 col-xs-12">
+          <div id="gender" class="btn-group" data-toggle="buttons">
+            <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+              <input type="radio" name="gender" value="male"> &nbsp; Male
+            </label>
+            <label class="btn btn-info" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+              <input type="radio" name="gender" value="female"> &nbsp; Female
+            </label>
+            <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+              <input type="radio" name="gender" value="other"> &nbsp; Other
+            </label>
+          </div>
+        </div>
+        <div class="control-label col-md-1 col-sm-1 col-xs-12"></div>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :gender %>
-    <%= f.select :gender, Help.genders.keys %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>Do you have kids?</h3>
+    </div>
+    <div class="panel-body">
+      <div class="form-group">
+        <div class="text-center col-md-12 col-sm-12 col-xs-12">
+          <div id="has_kids" class="btn-group" data-toggle="buttons">
+            <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+              <input type="radio" name="has_kids" value="yes"> &nbsp; Yes
+            </label>
+            <label class="btn btn-info" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+              <input type="radio" name="has_kids" value="no"> &nbsp; No
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :dependents %>
-    <%= f.check_box :dependents %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>Are you a victim of domestic abuse?</h3>
+    </div>
+    <div class="panel-body">
+      <div class="form-group">
+        <div class="text-center col-md-12 col-sm-12 col-xs-12">
+          <div id="domestic_abuse" class="btn-group" data-toggle="buttons">
+            <label class="btn btn-default <%= 'active' if @help_type == 'abuse' %>" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+              <input type="radio" name="domestic_abuse" value="yes" <%= 'selected="true"' if @help_type == 'abuse' %>> &nbsp; Yes
+            </label>
+            <label class="btn btn-info" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+              <input type="radio" name="domestic_abuse" value="no"> &nbsp; No
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>We're Here to Help You</h3>
+    </div>
+    <div class="panel-body">
+      <div class="form-group">
+        <div class="text-center col-md-12 col-sm-12 col-xs-12">
+          <input type="submit" name="find_a_provider" class="btn btn-info" value="Find A Service Provider"></input>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
+</form>

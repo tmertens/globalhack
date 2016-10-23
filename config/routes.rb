@@ -2,6 +2,7 @@ require 'housing_first/api/base'
 
 Rails.application.routes.draw do
 
+  get '/helps/matching_service_providers' => 'helps#matching_service_providers'
   resources :helps
   resources :intake_forms
   devise_for :users
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :organizations, only: [:index, :show]
+
 
   # Don't remove this route!!!
   get 'profiles/:username' => 'profiles#show'
