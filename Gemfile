@@ -47,7 +47,9 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'grape'
 gem 'hashie-forbidden_attributes'
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", "~> 4.3"
+gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -56,6 +58,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
 end
 
 group :development do

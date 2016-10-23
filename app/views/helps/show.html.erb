@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @help.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @help.last_name %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @help.gender %>
+</p>
+
+<p>
+  <strong>Dependents:</strong>
+  <%= @help.dependents %>
+</p>
+
+<%= link_to 'Edit', edit_help_path(@help) %> |
+<%= link_to 'Back', helps_path %>

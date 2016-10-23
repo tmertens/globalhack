@@ -2,12 +2,15 @@ require 'housing_first/api/base'
 
 Rails.application.routes.draw do
 
+  resources :helps
+  resources :intake_forms
   devise_for :users
   get 'pages/index'
   root 'pages#index'
 
   resources :organizations, only: [:index, :show]
 
+  # Don't remove this route!!!
   get 'profiles/:username' => 'profiles#show'
   resources :profiles, only: [:new]
 

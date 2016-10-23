@@ -1,7 +1,9 @@
 class Client < ApplicationRecord
   has_one :magic_phrase, primary_key: :uuid, foreign_key: :client_uuid
 
-  has_one :person
+  has_one :person, inverse_of: :client, required: false
+  accepts_nested_attributes_for :person
+
   has_one :client_profile
 
   has_many :as_dependent_dependent_clients, class_name: 'DependentClient',
@@ -16,7 +18,7 @@ class Client < ApplicationRecord
   has_many :organizations, through: :clients_organizations
   has_many :contacts, as: :contactable
 
-
+  has_many :intake_forms, inverse_of: :client
 
   # Pull out to module
   before_save :set_uuid

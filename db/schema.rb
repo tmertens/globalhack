@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022211512) do
+ActiveRecord::Schema.define(version: 20161023061854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,8 +33,12 @@ ActiveRecord::Schema.define(version: 20161022211512) do
     t.string   "username"
     t.text     "bio"
     t.boolean  "require_secret"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["client_id"], name: "index_client_profiles_on_client_id", using: :btree
     t.index ["username"], name: "index_client_profiles_on_username", unique: true, using: :btree
   end
@@ -77,12 +81,33 @@ ActiveRecord::Schema.define(version: 20161022211512) do
     t.integer "category_id"
   end
 
+  create_table "helps", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "gender"
+    t.boolean  "dependents"
+    t.integer  "help_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "housing_units", force: :cascade do |t|
     t.integer  "location_id"
     t.string   "unit_name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["location_id"], name: "index_housing_units_on_location_id", using: :btree
+  end
+
+  create_table "intake_forms", force: :cascade do |t|
+    t.integer  "vispdat_score"
+    t.boolean  "substance_abuse"
+    t.boolean  "utility_debt"
+    t.boolean  "mental_illness"
+    t.integer  "client_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["client_id"], name: "index_intake_forms_on_client_id", using: :btree
   end
 
   create_table "locations", force: :cascade do |t|
@@ -121,15 +146,12 @@ ActiveRecord::Schema.define(version: 20161022211512) do
   create_table "payments", force: :cascade do |t|
     t.integer  "client_id"
     t.integer  "organization_id"
-    t.integer  "possible_payment_id"
-    t.string   "clearing_house",      null: false
-    t.string   "transaction_id",      null: false
-    t.date     "eff_date",            null: false
-    t.integer  "amount_cents",        null: false
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.index ["clearing_house"], name: "index_payments_on_clearing_house", using: :btree
-    t.index ["eff_date"], name: "index_payments_on_eff_date", using: :btree
+    t.date     "eff_date"
+    t.integer  "amount_cents"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["client_id"], name: "index_payments_on_client_id", using: :btree
+    t.index ["organization_id"], name: "index_payments_on_organization_id", using: :btree
   end
 
   create_table "people", force: :cascade do |t|
@@ -200,10 +222,13 @@ ActiveRecord::Schema.define(version: 20161022211512) do
   add_foreign_key "clients_organizations", "clients"
   add_foreign_key "clients_organizations", "organizations"
   add_foreign_key "housing_units", "locations"
+  add_foreign_key "intake_forms", "clients"
   add_foreign_key "locations", "organizations"
   add_foreign_key "offering_eligibility_criteria", "eligibility_criteria", column: "eligibility_criteria_id"
   add_foreign_key "offering_eligibility_criteria", "service_offerings"
   add_foreign_key "organizations", "users", column: "owner_id"
+  add_foreign_key "payments", "clients"
+  add_foreign_key "payments", "organizations"
   add_foreign_key "people", "clients"
   add_foreign_key "service_offerings", "locations"
   add_foreign_key "service_offerings", "services"

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vispdat score:</strong>
+  <%= @intake_form.vispdat_score %>
+</p>
+
+<p>
+  <strong>Substance abuse:</strong>
+  <%= @intake_form.substance_abuse %>
+</p>
+
+<p>
+  <strong>Utility debt:</strong>
+  <%= @intake_form.utility_debt %>
+</p>
+
+<p>
+  <strong>Mental illness:</strong>
+  <%= @intake_form.mental_illness %>
+</p>
+
+<%= link_to 'Edit', edit_intake_form_path(@intake_form) %> |
+<%= link_to 'Back', intake_forms_path %>
