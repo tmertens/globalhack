@@ -1,8 +1,40 @@
 .card.card-block {
-	background-color: $card-background;
 	padding: 1em;
 	border-radius: 5px;
 	border-color: $card-border;
 	border-width: 1px;
 	min-height: 255px;
+}
+.card.card-block-transparent {
+  content: "";
+  margin-left:1em;
+  margin-right:1em;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  padding: 1em;
+  border-radius: 5px;
+  border-width: 0px;
+}
+
+.card.card-block-transparent-bg {
+  background-color: #ffffff;
+  opacity: 0.5;
+  content: "";
+  margin-left:1em;
+  margin-right:1em;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  padding: 1em;
+  border-radius: 5px;
+  border-width: 0px;
 }
