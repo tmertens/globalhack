@@ -39,7 +39,6 @@ gem 'dotenv-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'bootstrap', '~> 4.0.0.alpha4'
 gem 'underscore-rails'
 
 gem 'devise'
@@ -59,6 +58,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
 end
 
 group :development do

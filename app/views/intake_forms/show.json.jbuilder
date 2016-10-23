@@ -1,0 +1,1 @@
+json.partial! "intake_forms/intake_form", intake_form: @intake_form
