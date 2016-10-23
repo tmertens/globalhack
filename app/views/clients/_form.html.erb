@@ -1,5 +1,25 @@
-<%= form_for @client, url: client_path(@client), html: { multipart: true } do |f| %>
-  <%= f.label 'Picture' %>
-  <%= f.file_field :avatar %>
-  <%= f.submit 'Update Profile'%>
+<%= form_for @client, html: { multipart: true, class: 'form-horizontal' } do |f| %>
+  <div class="field form-group">
+    <div class="col-sm-10">
+      <%= f.text_field :informal_name, placeholder: 'Change Username', size: "41x6" %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <div class="col-sm-10">
+      <%= f.fields_for :client_profile do |cp| %>
+        <%= cp.text_area :bio, size: "41x6" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="btn btn-default">
+    <div class="col-sm-10">
+      <%= f.file_field :avatar %>
+    </div>
+  </div>
+
+  <div class="btn btn-default">
+      <%= f.submit 'Update Profile'%>
+  </div>
 <% end %>

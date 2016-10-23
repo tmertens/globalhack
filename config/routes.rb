@@ -2,6 +2,7 @@ require 'housing_first/api/base'
 
 Rails.application.routes.draw do
 
+  resources :helps
   resources :intake_forms
   devise_for :users
   get 'pages/index'
@@ -11,11 +12,11 @@ Rails.application.routes.draw do
   get '/search' => 'pages#find_client_profile'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :organizations, except: [:destroy]
+  resources :organizations, only: [:index, :show]
 
   # Don't remove this route!!!
   get 'profiles/:username' => 'profiles#show'
-  resources :profiles, only: [:show, :new]
+  resources :profiles, only: [:new]
 
   resources :payments, only: [:create, :show]
 
