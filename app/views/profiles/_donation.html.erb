@@ -1,3 +1,2 @@
-<div class="row">
-  <%= render partial: 'braintree_payment', locals: { organizations: (Organization.universal | @client.organizations), client_token: @client_token, digested_token: @digested_token } %>
-</div>
+<%= render partial: 'braintree_payment', locals: { organizations: (Organization.universal | @client.organizations), client_token: @client_token, digested_token: @digested_token } %>
+
