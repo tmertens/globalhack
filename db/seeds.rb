@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-jon = Client.create!(informal_name: 'Jon')
-angelina = Client.create!(informal_name: 'Angelina')
+jon = Client.first_or_create!(informal_name: 'Jon')
+angelina = Client.first_or_create!(informal_name: 'Angelina')
 
-DependentClient.create!(primary_client_id: jon.id, dependent_client_id: angelina.id)
+DependentClient.first_or_create!(primary_client_id: jon.id, dependent_client_id: angelina.id)
 
-luke = Client.create!(informal_name: 'Luke')
-grizzly_bear = User.create!(email: "grizzled@bear.com", password: "bearbear")
-peter = Organization.create(name: 'Peter and Paul Foundation')
+luke = Client.first_or_create!(informal_name: 'Luke')
+grizzly_bear = User.first_or_create!(email: "grizzled@bear.com", password: "bearbear")
+peter = Organization.create(name: 'Peter and Paul Foundation', owner: grizzly_bear)
 luke.organizations << peter
 
 MagicPhrase.create!(client_uuid: luke.uuid) do |phrase|
@@ -29,8 +29,8 @@ ClientProfile.create_with(client: luke,
 services = ['Housing', 'Job Training', 'Counseling', 'Veteran Services',
             'Legal Assistance']
 
-services.each do |service|
-  Service.create!(name: service)
+service_instances = services.map do |service|
+  Service.find_or_create_by!(name: service)
 end
 
 simple_eligibility_criteria = [
@@ -70,17 +70,14 @@ location = Organization::CreateFirstLocation.call!(organization: organization,
                                                    email:    'chaps.chippers@example.test')
 
 service_offerings = Location::AddServices.call!(location: location,
-                                       service_ids: [1, 3, 4])
+                                                service_ids: [service_instances[0].id,
+                                                              service_instances[2].id,
+                                                              service_instances[3].id])
 service_offerings.each do |offering|
   offering
 end
 
-ClientProfile.create!(username: 'PowerMan',
-                      client: luke,
-                      bio: "Luke Cage is an ex-convict, who was imprisoned for a crime he did not commit and gained the powers of superhuman strength and unbreakable skin after he was subjected to an involuntary experiment. He's getting back on his feet after his building was blown up by Cottonmouth",
-                      require_secret: true
-)
-Address.create!(
+Address.find_or_create_by!(
   street_1: '201 S 20th St.',
   city:     'St. Louis',
   state:    'MO',
