@@ -14,19 +14,19 @@ RSpec.describe ClientProfile, type: :model do
 
     context 'when there is only one potential match' do
       it 'returns the one match' do
-        expect(described_class.find_by_username('seabass')).to contain_exactly(cp_2)
+        expect(described_class.search_by_username('seabass')).to contain_exactly(cp_2)
       end
     end
 
     context 'when there are two potential matches' do
       it 'returns them both' do
-        expect(described_class.find_by_username('ell')).to contain_exactly(cp_1, cp_3)
+        expect(described_class.search_by_username('ell')).to contain_exactly(cp_1, cp_3)
       end
     end
 
     context 'when there are two similar results but an exact match' do
       it 'returns the exact match' do
-        expect(described_class.find_by_username('ella')).to contain_exactly(cp_1)
+        expect(described_class.search_by_username('ella')).to contain_exactly(cp_1)
       end
     end
   end
