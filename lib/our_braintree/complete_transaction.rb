@@ -12,7 +12,7 @@ module OurBraintree
       if result.success? || result.transaction
         possible_payment = PossiblePayment.includes(:client).find_by_digested_token(params['digested_token'])
         client = possible_payment.client
-        organization = client.organizations.find(params['organization_id'])
+        organization = Organization.find(params['organization_id'])
 
         payment = Payment.new(
           client_id: possible_payment.client_id,

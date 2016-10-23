@@ -1,9 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<%= render 'username' %>
-
-<%= image_tag(@profile.avatar.url, :size => '300x300') %>
-
-<%= render 'donation' %>
-
-<%= render 'bio' %>
+<div class="row">
+	<div class="container col-sm-6">
+		<%= render 'client_details' %>
+	</div>
+	<div class="container col-sm-6">
+		<%= render 'donation' %>
+	</div>
+</div>
