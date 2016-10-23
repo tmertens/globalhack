@@ -1,29 +1,28 @@
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card card-block">
-      <h3 class="card-title">Continuum of Care Providers</h3>
-      <p class="card-text">Housing First streamlines intake and communication between Continuum of Care service providers. Sign up to add your organization and manage client intake and placement.</p>
-      <p><%= link_to 'Get Started', new_user_registration_path, class: "btn btn-primary" %></p>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card card-block">
-      <h3 class="card-title">Search Organizations that Can Help</h3>
-      <p class="card-text">If you or someone you know may need housing assistance, search nearby organizations.</p>
-      <a href="#" class="btn btn-primary">Find Support</a>
-    </div>
-  </div>
+<div class="jumbotron">
+  <h1>Join the continuum of care</h1>
+  <p>Help end homelessness in your community.</p>
 </div>
 
 <div class="row">
-  <div class="col-sm-6">
-	  <div class="card card-block">
-	    <h3 class="card-title">People Who Care</h3>
-	    <p class="card-text">Find out how you can support your neighbors in need of stable housing.</p>
-	    <a href="#" class="btn btn-primary">Learn More</a>
-	  </div>
+  <div class="col-sm-4">
+    <div class="card card-block">
+      <h3 class="card-title">Help a Neighbor</h3>
+      <p class="card-text">Find out how you can support your neighbors in need of stable housing.</p>
+      <a href="#" class="btn btn-primary">Learn More</a>
+    </div>
   </div>
-  <div class="col-sm-6">
-    <%= render 'maps' %>
+  <div class="col-sm-4">
+    <div class="card card-block">
+      <h3 class="card-title">Get Help</h3>
+      <p class="card-text">If you or someone you know may need housing assistance, search for assistance from nearby organizations.</p>
+      <a href="#" class="btn btn-primary">Find Support</a>
+    </div>
   </div>
+    <div class="col-sm-4">
+      <div class="card card-block">
+        <h3 class="card-title">Help your Organization</h3>
+        <p class="card-text">Housing First streamlines intake and communication between Continuum of Care service providers. Sign up to add your organization and manage client intake and placement.</p>
+        <p><%= link_to 'Get Started', new_user_registration_path, class: "btn btn-primary" %></p>
+      </div>
+    </div>
 </div>

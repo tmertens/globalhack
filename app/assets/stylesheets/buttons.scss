@@ -1,2 +1,10 @@
-$btn-primary-bg: $rust;
-$btn-default-bg: $rust;
+.btn.btn-default {
+	background-color: $btn-default-bg;
+}
+
+.btn.btn-primary {
+	background-color: $btn-default-bg;
+	&:hover {
+		background-color: $btn-hover;
+	}
+}
