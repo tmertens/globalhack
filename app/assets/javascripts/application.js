@@ -19,4 +19,3 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree ./pages
-//= require_tree .
