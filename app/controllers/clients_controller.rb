@@ -25,6 +25,7 @@ class ClientsController < ApplicationController
     # here is an issue on this: https://github.com/thoughtbot/paperclip/issues/2151
     # here is prob a good source: http://sparksolutions.co/2016/01/configuring-heroku-aws-s3-and-paperclip-to-work-with-a-bucket-outside-of-the-usa/
     @client.client_profile.avatar = params['client']['avatar']
+    binding.pry
     @client.client_profile.avatar.save
 
     if @client.save

@@ -37,7 +37,7 @@ gem 'verbalize'
 gem 'geocoder'
 gem 'grape'
 gem 'hashie-forbidden_attributes'
-gem "paperclip"
+gem "paperclip", '~> 5.1'
 gem 'aws-sdk', '~> 2.3.0'
 
 group :development, :test do
