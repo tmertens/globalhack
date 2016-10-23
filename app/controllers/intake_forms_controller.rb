@@ -24,10 +24,13 @@ class IntakeFormsController < ApplicationController
   # POST /intake_forms
   # POST /intake_forms.json
   def create
-    @intake_form = IntakeForm.new(intake_form_params)
+    @client = Client.new(client_params)
+    @person = Person.new(person_params.merge(client: @client))
+    @intake_form = IntakeForm.new(intake_form_params.merge(client: @client))
 
     respond_to do |format|
-      if @intake_form.save
+      if @intake_form.save && @client.save && @person.save
+        number_of_dependents.times { @client.dependents.create! }
         format.html { redirect_to @intake_form, notice: 'Intake form was successfully created.' }
         format.json { render :show, status: :created, location: @intake_form }
       else
@@ -40,6 +43,9 @@ class IntakeFormsController < ApplicationController
   # PATCH/PUT /intake_forms/1
   # PATCH/PUT /intake_forms/1.json
   def update
+    @client = Client.update(client_params)
+    @person = Person.update(person_params.merge(client: @client))
+
     respond_to do |format|
       if @intake_form.update(intake_form_params)
         format.html { redirect_to @intake_form, notice: 'Intake form was successfully updated.' }
@@ -73,10 +79,14 @@ class IntakeFormsController < ApplicationController
     end
 
     def person_params
-      params.require(:person).permit(:first_name, :last_name, :date_of_birth, :gender, :ssn, :number_of_dependents)
+      params.require(:person).permit(:first_name, :last_name, :date_of_birth, :gender, :ssn)
     end
 
     def client_params
       params.require(:client).permit(:informal_name)
+    end
+
+    def number_of_dependents
+      params[:person][:number_of_dependents].try(:to_i)
     end
 end

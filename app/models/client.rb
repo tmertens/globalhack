@@ -16,7 +16,7 @@ class Client < ApplicationRecord
   has_many :organizations, through: :clients_organizations
   has_many :contacts, as: :contactable
 
-
+  has_many :intake_forms
 
   # Pull out to module
   before_save :set_uuid

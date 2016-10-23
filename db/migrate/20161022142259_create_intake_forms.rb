@@ -5,6 +5,7 @@ class CreateIntakeForms < ActiveRecord::Migration[5.0]
       t.boolean :substance_abuse
       t.boolean :utility_debt
       t.boolean :mental_illness
+      t.references :client, foreign_key: true
 
       t.timestamps
     end
