@@ -5,7 +5,14 @@
   <div class="col-xs-12">
     <h1 class="margin-left:0">Matching Service Providers Near You</h1>
   </div>
-  <div class="col-md-5 col-sm-5 hidden-sm hidden-xs">
+  <% if @locations.empty? %>
+      <div class="col-xs-12">
+      <h3>We're sorry, but there were no matches found at this time. <small>Please check back later.</small></h3>
+      </div>
+  <% else %>
+
+  <div class="col-md-5 col-sm-12 col-xs-12">
+
     <div class="panel panel-default">
       <div class="panel-heading"><h4>Locations</h4></div>
       <div class="panel-body">
@@ -36,11 +43,13 @@
         </table>
       </div>
     </div>
+
   </div>
-  <div class="col-md-7 col-sm-7 col-sm-12 col-xs-12">
-    <div id="map" style='width: 800px; height: 400px;'></div>
+  <div class="col-md-7 col-sm-12 col-xs-12 pull-right">
+    <div id="map" style='width: 100%; height: 400px;'></div>
   </div>
-  <div class="hidden-lg hidden-md col-sm-12 col-xs-12"></div>
+  <% end %>
+
 </div>
 
 
