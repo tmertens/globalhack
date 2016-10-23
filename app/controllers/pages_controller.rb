@@ -7,10 +7,10 @@ class PagesController < ApplicationController
   private
 
   def appropriate_path
-    first_login? ? new_organization_path : admin_dashboard_path
+    needs_organization? ? new_admin_organization_path : '/admin'
   end
 
-  def first_login?
-    current_user && current_user.sign_in_count == 1
+  def needs_organization?
+    current_user.needs_organization?
   end
 end
