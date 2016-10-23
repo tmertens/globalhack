@@ -1,4 +1,4 @@
-<%= form_for(intake_form) do |f| %>
+<%= form_for(intake_form, html: {class: 'form-horizontal'}) do |f| %>
   <% if intake_form.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(intake_form.errors.count, "error") %> prohibited this intake_form from being saved:</h2>
@@ -12,38 +12,38 @@
   <% end %>
 
   <%= f.fields_for :client, Client.new do |cf| %>
-    <div>
+    <div class="form-group" >
       <%= cf.label :informal_name %>
       <%= cf.text_field :informal_name %>
     </div>
 
     <%= cf.fields_for :person, Person.new do |pf| %>
-      <div class="field">
+      <div class="form-group">
         <%= pf.label :first_name %>
         <%= pf.text_field :first_name %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= pf.label :last_name %>
         <%= pf.text_field :last_name %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= pf.label :date_of_birth %>
         <%= pf.date_field :date_of_birth %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= pf.label :gender %>
         <%= pf.select :gender, Person.genders.keys %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= pf.label :ssn %>
         <%= pf.text_field :ssn %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= label_tag :number_of_dependents, 'Number of dependents' %>
         <%= number_field_tag 'number_of_dependents' %>
       </div>
