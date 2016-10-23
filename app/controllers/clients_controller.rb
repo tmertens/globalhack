@@ -20,7 +20,13 @@ class ClientsController < ApplicationController
 
   def update
     @client = Client.find_by(id: params['id'])
+
+    # This does not work correctly
+    # here is an issue on this: https://github.com/thoughtbot/paperclip/issues/2151
+    # here is prob a good source: http://sparksolutions.co/2016/01/configuring-heroku-aws-s3-and-paperclip-to-work-with-a-bucket-outside-of-the-usa/
     @client.client_profile.avatar = params['client']['avatar']
+    @client.client_profile.avatar.save
+
     if @client.save
       redirect_to @client
     else
