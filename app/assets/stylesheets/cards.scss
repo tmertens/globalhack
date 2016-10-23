@@ -5,6 +5,16 @@
 	border-width: 1px;
 	min-height: 255px;
 }
+
+.card.card-block.with-background {
+	padding: 1em;
+	border-radius: 5px;
+	border-color: $card-border;
+	border-width: 1px;
+	min-height: 255px;
+	background-color: $card-background;
+}
+
 .card.card-block-transparent {
   content: "";
   margin-left:1em;
