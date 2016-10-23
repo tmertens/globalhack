@@ -5,7 +5,6 @@ class ServiceOffering < ApplicationRecord
     input :help_params
 
     def call
-
       scope = ServiceOffering.all
       scope.joins(:eligibility_criteria).merge(EligibilityCriteria.where(name: help_params['gender']))
       if has_kids?

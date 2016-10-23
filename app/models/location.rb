@@ -23,10 +23,13 @@ class Location < ApplicationRecord
   end
 
   def number_matcher
+    return unless phone
     /1?.*([0-9]{3}).*([0-9]{3}).*([0-9]{4})/.match(phone.value)
   end
 
   def email
-    contacts.where(contact_type: :email_address).first.value
+    contactable = contacts.where(contact_type: :email_address).first
+    return unless contactable
+    contactable.value
   end
 end
