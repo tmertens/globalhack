@@ -30,7 +30,11 @@
           </li>
           <li><a><i class="fa fa-edit"></i> My Organization<span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="form.html">U</a></li>
+              <% if current_user.organization %>
+                <li><a href="../admin"><% current_user.organization.name %></a></li>
+              <% else %>
+                <li><a href="admin/organizations/new.html">create your org</a></li>
+              <% end %>
             </ul>
           </li>
           <li><a><i class="fa fa-users"></i> CoC Network</a>

@@ -1,1 +1,13 @@
+<% if @organization %>
+  <div>
+    <%= @organization.name %>
+  </div>
 
+  <div>
+    serving <%= @organization.clients.count %> people in need
+  </div>
+
+  <% @organization.services.each do |service| %>
+    render partial: 'organizations/service', locals: { service: service }
+  <% end %>
+<% end %>
