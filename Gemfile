@@ -48,7 +48,7 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'grape'
 gem 'hashie-forbidden_attributes'
-gem "paperclip", '=5.0.0'
+gem "paperclip", "~> 4.3"
 gem 'aws-sdk', '~> 2.3.0'
 gem 'aws-sdk-rails'
 
